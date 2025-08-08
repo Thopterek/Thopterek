@@ -1,5 +1,7 @@
 ## 👾 I use nvim btw
-best hardware engineer you met
+“If you wish to make an apple pie from scratch, 
+
+you must first invent the universe.” -- Carl Sagan
 <!--
 **Thopterek/Thopterek** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
