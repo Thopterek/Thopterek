@@ -1,7 +1,7 @@
 ## 👾 I use nvim btw
-“If you wish to make an apple pie from scratch, 
+<i>“If you wish to make an apple pie from scratch,</i>
 
-you must first invent the universe.” -- Carl Sagan
+<i>you must first invent the universe.”</i> - Carl Sagan
 <!--
 **Thopterek/Thopterek** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
