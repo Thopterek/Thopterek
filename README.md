@@ -10,6 +10,6 @@
 <p><i>you must first invent the universe.”</i> - Carl Sagan</p></li>
 
 <img src="./img/restart.gif" alt="restart" width="300" heigh="300">
-
+<!-- the author of the gif: JoeMama1 @JoeMama1 -->
 </ul>
 
