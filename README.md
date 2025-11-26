@@ -7,7 +7,7 @@
 
 <li>
     <p><i>“If you wish to make an apple pie from scratch,</i></p>
-<p><i>you must first invent the universe.”</i> - Carl Sagan</p></li>
+<p><i>you must first invent the universe.”</i> <sub>Carl Sagan</sub></p></li>
 
 <img src="./img/restart.gif" alt="restart" width="300" heigh="300">
 <!-- the author of the gif: JoeMama1 @JoeMama1 -->
