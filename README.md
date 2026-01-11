@@ -6,7 +6,7 @@
 
 <div align="center">
 
-![Languages by size](https://raw.githubusercontent.com/Thopterek/Thopterek/main/languages-by-size.svg)
+![Languages by repositories](https://raw.githubusercontent.com/Thopterek/Thopterek/main/languages-by-repo.svg)
 ![Languages by activity](https://raw.githubusercontent.com/Thopterek/Thopterek/main/languages-by-commit.svg)
 
 </div>
