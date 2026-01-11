@@ -5,6 +5,6 @@
 </div>
 
 <div align="center">
-![Languages by size](https://raw.githubusercontent.com/<you>/<you>/main/languages-by-size.svg)
-![Languages by activity](https://raw.githubusercontent.com/<you>/<you>/main/languages-by-commit.svg)
+![Languages by size](https://raw.githubusercontent.com/Thopterek/Thopterek/main/languages-by-size.svg)
+![Languages by activity](https://raw.githubusercontent.com/<you>/Thopterek/main/languages-by-commit.svg)
 </div>
