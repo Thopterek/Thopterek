@@ -189,7 +189,7 @@ def render_combined(repo_data, activity_data):
     repo_paths = pie_paths(repo_top, left_pie_cx, left_pie_cy, colors=REPO_COLORS)
     act_paths  = pie_paths(act_top, right_pie_cx, right_pie_cy, colors=ACTIVITY_COLORS)
 
-    svg = f'''<svg width="820" height="360" viewBox="0 0 820 360" xmlns="http://www.w3.org/2000/svg">
+    svg = f'''<svg width="800" height="280" viewBox="0 0 800 280" xmlns="http://www.w3.org/2000/svg">
     <rect width="100%" height="100%" fill="{BG_COLOR}"/>
     <text x="40" y="36" font-size="16" fill="{TEXT_COLOR}">Languages by repositories</text>
     <text x="440" y="36" font-size="16" fill="{TEXT_COLOR}">Languages by activity</text>
