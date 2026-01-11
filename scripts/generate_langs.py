@@ -198,11 +198,11 @@ def render_combined(repo_data, activity_data):
     {legend_svg(left_legend_x, left_legend_y, repo_paths)}
     <!-- right legend -->
     {legend_svg(right_legend_x, right_legend_y, act_paths)}
+    # left pie
+    {''.join(f'<path d="{d}" fill="{c}"/>' for d, c, _, _ in repo_paths)}
+    # right pie
+    {''.join(f'<path d="{d}" fill="{c}"/>' for d, c, _, _ in act_paths)}
 
-    <!-- left pie -->
-    {''.join(f'<path d=\"{d}\" fill=\"{c}\"/>' for d, c, _, _ in repo_paths)}
-    <!-- right pie -->
-    {''.join(f'<path d=\"{d}\" fill=\"{c}\"/>' for d, c, _, _ in act_paths)}
     </svg>'''
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         f.write(svg)
