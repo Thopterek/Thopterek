@@ -3,27 +3,21 @@ import os
 import math
 import requests
 
-# -------------------- CONFIG --------------------
-
 TOP_N = 5
 EXCLUDED_LANGUAGES = set()
-
-COLORS = [
-    "#f97316",  # orange
-    "#22c55e",  # green
-    "#38bdf8",  # light blue
-    "#a78bfa",  # purple
-    "#f43f5e",  # red
-    "#eab308",  # yellow
-    "#14b8a6",  # teal
-    "#fb7185",  # pink
-]
 
 BG_COLOR = "#0b0f1a"
 TEXT_COLOR = "#e5e7eb"
 MUTED_TEXT = "#9ca3af"
+OTHER_COLOR = "#6b7280"
 
-# ------------------------------------------------
+REPO_COLORS = [
+    "#f97316", "#eab308", "#22c55e", "#fb7185", "#a78bfa"
+]
+
+ACTIVITY_COLORS = [
+    "#38bdf8", "#14b8a6", "#6366f1", "#06b6d4", "#0ea5e9"
+]
 
 GITHUB_API = "https://api.github.com/graphql"
 TOKEN = os.environ["GITHUB_TOKEN"]
@@ -50,7 +44,7 @@ query ($login: String!, $after: String) {
 }
 """
 
-# -------------------- DATA FETCH --------------------
+# -------------------- DATA --------------------
 
 def fetch_repositories():
     repos, cursor = [], None
@@ -59,137 +53,116 @@ def fetch_repositories():
             "query": QUERY,
             "variables": {"login": USERNAME, "after": cursor}
         }).json()
-
         page = r["data"]["user"]["repositories"]
         repos += page["nodes"]
-
         if not page["pageInfo"]["hasNextPage"]:
             break
         cursor = page["pageInfo"]["endCursor"]
-
     return repos
 
-def fetch_commit_count(repo_name):
-    url = f"https://api.github.com/repos/{USERNAME}/{repo_name}/commits?per_page=1"
+def fetch_commit_count(repo):
+    url = f"https://api.github.com/repos/{USERNAME}/{repo}/commits?per_page=1"
     r = requests.get(url, headers=HEADERS)
-
     if "Link" not in r.headers:
         return len(r.json())
-
     for part in r.headers["Link"].split(","):
         if 'rel="last"' in part:
             return int(part.split("page=")[-1].split(">")[0])
     return 1
 
-# -------------------- AGGREGATION --------------------
-
 def languages_by_repo_count(repos):
-    counts = {}
+    out = {}
     for r in repos:
-        langs = {e["node"]["name"] for e in r["languages"]["edges"]}
-        for lang in langs:
-            if lang in EXCLUDED_LANGUAGES:
-                continue
-            counts[lang] = counts.get(lang, 0) + 1
-    return counts
+        for e in {e["node"]["name"] for e in r["languages"]["edges"]}:
+            out[e] = out.get(e, 0) + 1
+    return out
 
 def commit_weighted_languages(repos):
-    weighted = {}
+    out = {}
     for r in repos:
         langs = {e["node"]["name"] for e in r["languages"]["edges"]}
         if not langs:
             continue
-        commits = fetch_commit_count(r["name"])
-        weight = commits / len(langs)
-        for lang in langs:
-            if lang in EXCLUDED_LANGUAGES:
-                continue
-            weighted[lang] = weighted.get(lang, 0) + weight
-    return weighted
+        weight = fetch_commit_count(r["name"]) / len(langs)
+        for l in langs:
+            out[l] = out.get(l, 0) + weight
+    return out
 
-def top_n_with_other(data):
+def top_n(data):
     items = sorted(data.items(), key=lambda x: x[1], reverse=True)
     top = items[:TOP_N]
     other = sum(v for _, v in items[TOP_N:])
-    if other > 0:
+    if other:
         top.append(("Other", other))
     return top
 
 # -------------------- SVG HELPERS --------------------
 
-def pie_paths(data, cx, cy, r_outer, r_inner):
+def pie(cx, cy, data, colors):
     total = sum(v for _, v in data)
     angle = -math.pi / 2
-    result = []
+    paths = []
 
     for i, (label, value) in enumerate(data):
         frac = value / total
         delta = frac * 2 * math.pi
         a1, a2 = angle, angle + delta
         large = 1 if delta > math.pi else 0
-        color = COLORS[i % len(COLORS)]
+        color = OTHER_COLOR if label == "Other" else colors[i % len(colors)]
 
         def pt(r, a):
             return cx + r * math.cos(a), cy + r * math.sin(a)
 
-        x1, y1 = pt(r_outer, a1)
-        x2, y2 = pt(r_outer, a2)
-        x3, y3 = pt(r_inner, a2)
-        x4, y4 = pt(r_inner, a1)
+        rO, rI = 80, 50
+        x1, y1 = pt(rO, a1)
+        x2, y2 = pt(rO, a2)
+        x3, y3 = pt(rI, a2)
+        x4, y4 = pt(rI, a1)
 
         d = (
-            f"M{x1},{y1} "
-            f"A{r_outer},{r_outer} 0 {large} 1 {x2},{y2} "
-            f"L{x3},{y3} "
-            f"A{r_inner},{r_inner} 0 {large} 0 {x4},{y4} Z"
+            f"M{x1},{y1} A{rO},{rO} 0 {large} 1 {x2},{y2} "
+            f"L{x3},{y3} A{rI},{rI} 0 {large} 0 {x4},{y4} Z"
         )
 
-        result.append((d, color, label, round(frac * 100)))
+        paths.append((d, color, label, round(frac * 100)))
         angle = a2
 
-    return result
+    return paths
+
+def legend(x, y, items):
+    out = ""
+    for i, (_, color, label, pct) in enumerate(items):
+        out += f'''
+        <rect x="{x}" y="{y + i*18}" width="12" height="12" fill="{color}" rx="2"/>
+        <text x="{x+18}" y="{y + i*18 + 11}" font-size="12" fill="{TEXT_COLOR}">
+          {label} — {pct}%
+        </text>
+        '''
+    return out
 
 # -------------------- SVG RENDER --------------------
 
-def render_combined_svg(repo_data, commit_data):
-    repo_pie = pie_paths(top_n_with_other(repo_data), 170, 160, 85, 52)
-    commit_pie = pie_paths(top_n_with_other(commit_data), 430, 160, 85, 52)
+def render(repo_data, activity_data):
+    repo_pie = pie(220, 160, top_n(repo_data), REPO_COLORS)
+    act_pie = pie(520, 160, top_n(activity_data), ACTIVITY_COLORS)
 
-    legend_items = {}
-    for pie in repo_pie + commit_pie:
-        _, color, label, _ = pie
-        legend_items[label] = color
-
-    legend = ""
-    for i, (label, color) in enumerate(legend_items.items()):
-        y = 300 + i * 18
-        legend += f'''
-        <rect x="40" y="{y-10}" width="12" height="12" fill="{color}" rx="2"/>
-        <text x="60" y="{y}" font-size="12" fill="{TEXT_COLOR}">
-          {label}
-        </text>
-        '''
-
-    svg = f'''<svg width="600" height="420" viewBox="0 0 600 420"
+    svg = f'''<svg width="700" height="360" viewBox="0 0 700 360"
       xmlns="http://www.w3.org/2000/svg">
       <rect width="100%" height="100%" fill="{BG_COLOR}"/>
 
-      <text x="20" y="28" font-size="18" fill="{TEXT_COLOR}">
-        Languages overview — {USERNAME}
+      <text x="40" y="32" font-size="16" fill="{TEXT_COLOR}">
+        Languages by repositories
       </text>
 
-      <text x="90" y="60" font-size="14" fill="{MUTED_TEXT}">
-        By repositories
+      <text x="380" y="32" font-size="16" fill="{TEXT_COLOR}">
+        Languages by activity
       </text>
 
-      <text x="340" y="60" font-size="14" fill="{MUTED_TEXT}">
-        By activity
-      </text>
+      {legend(40, 60, repo_pie)}
+      {legend(380, 60, act_pie)}
 
       {''.join(f'<path d="{d}" fill="{c}"/>' for d, c, _, _ in repo_pie)}
-      {''.join(f'<path d="{d}" fill="{c}"/>' for d, c, _, _ in commit_pie)}
-
-      {legend}
+      {''.join(f'<path d="{d}" fill="{c}"/>' for d, c, _, _ in act_pie)}
     </svg>'''
 
     with open("languages-overview.svg", "w", encoding="utf-8") as f:
@@ -199,13 +172,11 @@ def render_combined_svg(repo_data, commit_data):
 
 def main():
     repos = fetch_repositories()
-
-    render_combined_svg(
+    render(
         languages_by_repo_count(repos),
         commit_weighted_languages(repos)
     )
-
-    print("Generated combined languages overview SVG")
+    print("Generated improved combined SVG")
 
 if __name__ == "__main__":
     main()
