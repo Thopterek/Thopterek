@@ -6,7 +6,7 @@ import requests
 # -------------------- CONFIG --------------------
 
 TOP_N = 5
-EXCLUDED_LANGUAGES = set()  # optional filtering later
+EXCLUDED_LANGUAGES = set()
 
 COLORS = [
     "#f97316",  # orange
@@ -21,6 +21,7 @@ COLORS = [
 
 BG_COLOR = "#0b0f1a"
 TEXT_COLOR = "#e5e7eb"
+MUTED_TEXT = "#9ca3af"
 
 # ------------------------------------------------
 
@@ -95,10 +96,10 @@ def languages_by_repo_count(repos):
 def commit_weighted_languages(repos):
     weighted = {}
     for r in repos:
-        commits = fetch_commit_count(r["name"])
         langs = {e["node"]["name"] for e in r["languages"]["edges"]}
         if not langs:
             continue
+        commits = fetch_commit_count(r["name"])
         weight = commits / len(langs)
         for lang in langs:
             if lang in EXCLUDED_LANGUAGES:
@@ -114,15 +115,12 @@ def top_n_with_other(data):
         top.append(("Other", other))
     return top
 
-# -------------------- SVG PIE --------------------
+# -------------------- SVG HELPERS --------------------
 
-def generate_pie(data, title, filename):
-    data = top_n_with_other(data)
+def pie_paths(data, cx, cy, r_outer, r_inner):
     total = sum(v for _, v in data)
-    cx, cy = 160, 140
-    r_outer, r_inner = 90, 55
     angle = -math.pi / 2
-    paths = []
+    result = []
 
     for i, (label, value) in enumerate(data):
         frac = value / total
@@ -146,28 +144,55 @@ def generate_pie(data, title, filename):
             f"A{r_inner},{r_inner} 0 {large} 0 {x4},{y4} Z"
         )
 
-        paths.append((d, color, label, round(frac * 100)))
+        result.append((d, color, label, round(frac * 100)))
         angle = a2
 
+    return result
+
+# -------------------- SVG RENDER --------------------
+
+def render_combined_svg(repo_data, commit_data):
+    repo_pie = pie_paths(top_n_with_other(repo_data), 170, 160, 85, 52)
+    commit_pie = pie_paths(top_n_with_other(commit_data), 430, 160, 85, 52)
+
+    legend_items = {}
+    for pie in repo_pie + commit_pie:
+        _, color, label, _ = pie
+        legend_items[label] = color
+
     legend = ""
-    for i, (_, color, label, pct) in enumerate(paths):
-        y = 60 + i * 20
+    for i, (label, color) in enumerate(legend_items.items()):
+        y = 300 + i * 18
         legend += f'''
-        <rect x="300" y="{y-10}" width="12" height="12" fill="{color}" rx="2"/>
-        <text x="320" y="{y}" font-size="12" fill="{TEXT_COLOR}">
-          {label} — {pct}%
+        <rect x="40" y="{y-10}" width="12" height="12" fill="{color}" rx="2"/>
+        <text x="60" y="{y}" font-size="12" fill="{TEXT_COLOR}">
+          {label}
         </text>
         '''
 
-    svg = f'''<svg width="520" height="280" viewBox="0 0 520 280"
+    svg = f'''<svg width="600" height="420" viewBox="0 0 600 420"
       xmlns="http://www.w3.org/2000/svg">
       <rect width="100%" height="100%" fill="{BG_COLOR}"/>
-      <text x="20" y="24" font-size="16" fill="{TEXT_COLOR}">{title}</text>
-      {''.join(f'<path d="{d}" fill="{c}"/>' for d, c, _, _ in paths)}
+
+      <text x="20" y="28" font-size="18" fill="{TEXT_COLOR}">
+        Languages overview — {USERNAME}
+      </text>
+
+      <text x="90" y="60" font-size="14" fill="{MUTED_TEXT}">
+        By repositories
+      </text>
+
+      <text x="340" y="60" font-size="14" fill="{MUTED_TEXT}">
+        By activity
+      </text>
+
+      {''.join(f'<path d="{d}" fill="{c}"/>' for d, c, _, _ in repo_pie)}
+      {''.join(f'<path d="{d}" fill="{c}"/>' for d, c, _, _ in commit_pie)}
+
       {legend}
     </svg>'''
 
-    with open(filename, "w", encoding="utf-8") as f:
+    with open("languages-overview.svg", "w", encoding="utf-8") as f:
         f.write(svg)
 
 # -------------------- MAIN --------------------
@@ -175,19 +200,12 @@ def generate_pie(data, title, filename):
 def main():
     repos = fetch_repositories()
 
-    generate_pie(
+    render_combined_svg(
         languages_by_repo_count(repos),
-        f"Languages by repositories — {USERNAME}",
-        "languages-by-repo.svg"
+        commit_weighted_languages(repos)
     )
 
-    generate_pie(
-        commit_weighted_languages(repos),
-        "Languages by activity (commit-weighted)",
-        "languages-by-commit.svg"
-    )
-
-    print("Generated language pie charts")
+    print("Generated combined languages overview SVG")
 
 if __name__ == "__main__":
     main()
