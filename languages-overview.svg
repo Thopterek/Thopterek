@@ -1,39 +1,45 @@
 <svg width="800" height="280" viewBox="0 0 800 280" xmlns="http://www.w3.org/2000/svg">
-    <rect width="100%" height="100%" fill="#0b0f1a"/>
-    <text x="40" y="36" font-size="16" fill="#e5e7eb">Languages by repositories</text>
-    <text x="440" y="36" font-size="16" fill="#e5e7eb">Languages by activity</text>
+  <rect width="100%" height="100%" fill="#0b0f1a" rx="12"/>
 
-    <!-- left legend -->
-    <rect x="40" y="58" width="12" height="12" fill="#f97316" rx="2"/>
-<text x="58" y="68" font-size="12" fill="#e5e7eb">C — 22%</text>
+  <!-- panel titles -->
+  <text x="40"  y="36" font-size="14" font-weight="600" fill="#e5e7eb" font-family="monospace">Languages by code size</text>
+  <text x="440" y="36" font-size="14" font-weight="600" fill="#e5e7eb" font-family="monospace">Languages by activity</text>
+  <text x="40"  y="52" font-size="10" fill="#9ca3af" font-family="monospace">weighted by bytes across all repos (public + private)</text>
+  <text x="440" y="52" font-size="10" fill="#9ca3af" font-family="monospace">commits distributed by byte share per repo</text>
+
+  <line x1="400" y1="20" x2="400" y2="260" stroke="#9ca3af" stroke-width="0.5" stroke-dasharray="4 4" opacity="0.4"/>
+
+  <!-- left legend -->
+  <rect x="40" y="58" width="12" height="12" fill="#f97316" rx="2"/>
+<text x="58" y="68" font-size="12" fill="#e5e7eb">Python — 43%</text>
 <rect x="40" y="78" width="12" height="12" fill="#eab308" rx="2"/>
-<text x="58" y="88" font-size="12" fill="#e5e7eb">Python — 17%</text>
+<text x="58" y="88" font-size="12" fill="#e5e7eb">C — 35%</text>
 <rect x="40" y="98" width="12" height="12" fill="#22c55e" rx="2"/>
-<text x="58" y="108" font-size="12" fill="#e5e7eb">Assembly — 13%</text>
+<text x="58" y="108" font-size="12" fill="#e5e7eb">C++ — 13%</text>
 <rect x="40" y="118" width="12" height="12" fill="#fb7185" rx="2"/>
-<text x="58" y="128" font-size="12" fill="#e5e7eb">C++ — 13%</text>
+<text x="58" y="128" font-size="12" fill="#e5e7eb">Rust — 6%</text>
 <rect x="40" y="138" width="12" height="12" fill="#a78bfa" rx="2"/>
-<text x="58" y="148" font-size="12" fill="#e5e7eb">Rust — 13%</text>
+<text x="58" y="148" font-size="12" fill="#e5e7eb">Shell — 1%</text>
 <rect x="40" y="158" width="12" height="12" fill="#6b7280" rx="2"/>
-<text x="58" y="168" font-size="12" fill="#e5e7eb">Other — 22%</text>
+<text x="58" y="168" font-size="12" fill="#e5e7eb">Other — 1%</text>
 
-    <!-- right legend -->
-    <rect x="440" y="58" width="12" height="12" fill="#06b6d4" rx="2"/>
-<text x="458" y="68" font-size="12" fill="#e5e7eb">C++ — 27%</text>
+  <!-- right legend -->
+  <rect x="440" y="58" width="12" height="12" fill="#06b6d4" rx="2"/>
+<text x="458" y="68" font-size="12" fill="#e5e7eb">Python — 27%</text>
 <rect x="440" y="78" width="12" height="12" fill="#6366f1" rx="2"/>
-<text x="458" y="88" font-size="12" fill="#e5e7eb">Rust — 21%</text>
+<text x="458" y="88" font-size="12" fill="#e5e7eb">C++ — 26%</text>
 <rect x="440" y="98" width="12" height="12" fill="#00c2a8" rx="2"/>
-<text x="458" y="108" font-size="12" fill="#e5e7eb">Jupyter Notebook — 14%</text>
+<text x="458" y="108" font-size="12" fill="#e5e7eb">Rust — 21%</text>
 <rect x="440" y="118" width="12" height="12" fill="#ff6b6b" rx="2"/>
 <text x="458" y="128" font-size="12" fill="#e5e7eb">C — 13%</text>
 <rect x="440" y="138" width="12" height="12" fill="#ffd166" rx="2"/>
-<text x="458" y="148" font-size="12" fill="#e5e7eb">Python — 13%</text>
+<text x="458" y="148" font-size="12" fill="#e5e7eb">Assembly — 7%</text>
 <rect x="440" y="158" width="12" height="12" fill="#6b7280" rx="2"/>
-<text x="458" y="168" font-size="12" fill="#e5e7eb">Other — 12%</text>
+<text x="458" y="168" font-size="12" fill="#e5e7eb">Other — 7%</text>
 
-    # left pie
-    <path d="M280.0,72.0 A88,88 0 0 1 366.1593997160444,142.0958708513682 L334.8287089102101,148.6064632690525 A56,56 0 0 0 280.0,104.0 Z" fill="#f97316"/><path d="M366.1593997160444,142.0958708513682 A88,88 0 0 1 335.53573910069264,228.26259358198894 L315.34092488225895,203.4398322794475 A56,56 0 0 0 334.8287089102101,148.6064632690525 Z" fill="#eab308"/><path d="M335.53573910069264,228.26259358198894 A88,88 0 0 1 268.0173348795303,247.1803632511971 L272.3746676506102,215.47841297803453 A56,56 0 0 0 315.34092488225895,203.4398322794475 Z" fill="#22c55e"/><path d="M268.0173348795303,247.1803632511971 A88,88 0 0 1 208.1066494150811,210.7478683461083 L234.24968599141525,192.29409803843257 A56,56 0 0 0 272.3746676506102,215.47841297803453 Z" fill="#fb7185"/><path d="M208.1066494150811,210.7478683461083 A88,88 0 0 1 193.84060028395558,142.09587085136823 L225.17129108978992,148.6064632690525 A56,56 0 0 0 234.24968599141525,192.29409803843257 Z" fill="#a78bfa"/><path d="M193.84060028395558,142.09587085136823 A88,88 0 0 1 280.0,72.0 L280.0,104.0 A56,56 0 0 0 225.17129108978992,148.6064632690525 Z" fill="#6b7280"/>
-    # right pie
-    <path d="M680.0,72.0 A88,88 0 0 1 767.1920961499862,171.89698991222366 L735.4858793681731,167.57081176232415 A56,56 0 0 0 680.0,104.0 Z" fill="#06b6d4"/><path d="M767.1920961499862,171.89698991222366 A88,88 0 0 1 691.8969899122237,247.19209614998624 L687.5708117623242,215.48587936817307 A56,56 0 0 0 735.4858793681731,167.57081176232415 Z" fill="#6366f1"/><path d="M691.8969899122237,247.19209614998624 A88,88 0 0 1 621.0180363820573,225.30794720224856 L642.4660231522183,201.55960276506727 A56,56 0 0 0 687.5708117623242,215.48587936817307 Z" fill="#00c2a8"/><path d="M621.0180363820573,225.30794720224856 A88,88 0 0 1 592.0056189893404,160.99443981762224 L624.0035757204894,160.6328253384869 A56,56 0 0 0 642.4660231522183,201.55960276506727 Z" fill="#ff6b6b"/><path d="M592.0056189893404,160.99443981762224 A88,88 0 0 1 618.8382775394019,96.72880824851826 L641.0789038887103,119.73651433996616 A56,56 0 0 0 624.0035757204894,160.6328253384869 Z" fill="#ffd166"/><path d="M618.8382775394019,96.72880824851826 A88,88 0 0 1 680.0,72.0 L680.0,104.0 A56,56 0 0 0 641.0789038887103,119.73651433996616 Z" fill="#6b7280"/>
 
-    </svg>
+  <!-- left pie -->
+  <path d="M280.00,72.00 A88,88 0 0 1 319.61,238.58 L305.21,210.00 A56,56 0 0 0 280.00,104.00 Z" fill="#f97316"/><path d="M319.61,238.58 A88,88 0 0 1 193.43,144.22 L224.91,149.96 A56,56 0 0 0 305.21,210.00 Z" fill="#eab308"/><path d="M193.43,144.22 A88,88 0 0 1 233.82,85.09 L250.61,112.33 A56,56 0 0 0 224.91,149.96 Z" fill="#22c55e"/><path d="M233.82,85.09 A88,88 0 0 1 266.93,72.98 L271.68,104.62 A56,56 0 0 0 250.61,112.33 Z" fill="#fb7185"/><path d="M266.93,72.98 A88,88 0 0 1 273.08,72.27 L275.60,104.17 A56,56 0 0 0 271.68,104.62 Z" fill="#a78bfa"/><path d="M273.08,72.27 A88,88 0 0 1 280.00,72.00 L280.00,104.00 A56,56 0 0 0 275.60,104.17 Z" fill="#6b7280"/>
+  <!-- right pie -->
+  <path d="M680.00,72.00 A88,88 0 0 1 767.07,172.74 L735.41,168.11 A56,56 0 0 0 680.00,104.00 Z" fill="#06b6d4"/><path d="M767.07,172.74 A88,88 0 0 1 663.40,246.42 L669.43,214.99 A56,56 0 0 0 735.41,168.11 Z" fill="#6366f1"/><path d="M663.40,246.42 A88,88 0 0 1 592.24,166.54 L624.15,164.16 A56,56 0 0 0 669.43,214.99 Z" fill="#00c2a8"/><path d="M592.24,166.54 A88,88 0 0 1 613.90,101.91 L637.93,123.03 A56,56 0 0 0 624.15,164.16 Z" fill="#ff6b6b"/><path d="M613.90,101.91 A88,88 0 0 1 642.67,80.31 L656.24,109.29 A56,56 0 0 0 637.93,123.03 Z" fill="#ffd166"/><path d="M642.67,80.31 A88,88 0 0 1 680.00,72.00 L680.00,104.00 A56,56 0 0 0 656.24,109.29 Z" fill="#6b7280"/>
+</svg>
