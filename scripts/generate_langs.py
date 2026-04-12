@@ -5,11 +5,10 @@ import requests
 import sys
 
 # -------------------- CONFIG --------------------
-TOP_N = 5
-EXCLUDED_LANGUAGES = {"HTML", "CSS"}   # pure markup / style — usually not meaningful
+TOP_N = 10   # slices shown in each pie — no "Other" bucket
+EXCLUDED_LANGUAGES = {"HTML", "CSS"}
 
-# Remap "surface" languages to their real underlying language.
-# Add anything you like here; keys are matched exactly (case-sensitive).
+# Remap surface languages to their real underlying language.
 LANGUAGE_REMAP = {
     "Jupyter Notebook": "Python",
     "SCSS":             "CSS",
@@ -20,29 +19,33 @@ LANGUAGE_REMAP = {
 }
 
 # Visuals
-BG_COLOR    = "#0b0f1a"
-TEXT_COLOR  = "#e5e7eb"
-MUTED_TEXT  = "#9ca3af"
-OTHER_COLOR = "#6b7280"
+BG_COLOR   = "#0b0f1a"
+TEXT_COLOR = "#e5e7eb"
+MUTED_TEXT = "#6b7280"
+BORDER     = "#1f2937"
 
-# Left / repo-size pie (warm, vibrant)
-REPO_COLORS     = ["#f97316", "#eab308", "#22c55e", "#fb7185", "#a78bfa"]
+# 10 colors for the pies — warm left, cool right
+REPO_COLORS     = ["#f97316","#eab308","#22c55e","#fb7185","#a78bfa",
+                   "#f43f5e","#84cc16","#fbbf24","#34d399","#c084fc"]
+ACTIVITY_COLORS = ["#06b6d4","#6366f1","#00c2a8","#ff6b6b","#ffd166",
+                   "#38bdf8","#818cf8","#2dd4bf","#fb923c","#e879f9"]
 
-# Right / activity pie (high-contrast)
-ACTIVITY_COLORS = ["#06b6d4", "#6366f1", "#00c2a8", "#ff6b6b", "#ffd166"]
+# Roster: top-10 get a color (reused from REPO_COLORS), rest get this dim color
+ROSTER_DIM = "#374151"
 
 OUTPUT_FILE = "languages-overview.svg"
 # ------------------------------------------------
 
 TOKEN = os.environ.get("GITHUB_TOKEN")
 if not TOKEN:
-    print("Error: GITHUB_TOKEN not set in environment.", file=sys.stderr)
+    print("Error: GITHUB_TOKEN not set.", file=sys.stderr)
     sys.exit(1)
 
 GITHUB_API = "https://api.github.com/graphql"
-USERNAME = os.environ.get("GH_USERNAME", os.environ.get("GITHUB_REPOSITORY", "").split("/")[0])
+USERNAME   = os.environ.get("GH_USERNAME",
+             os.environ.get("GITHUB_REPOSITORY", "").split("/")[0])
 if not USERNAME:
-    print("Error: Could not determine GH username. Set GH_USERNAME or run in a repo context.", file=sys.stderr)
+    print("Error: Set GH_USERNAME or run inside a repo context.", file=sys.stderr)
     sys.exit(1)
 
 HEADERS = {
@@ -50,8 +53,6 @@ HEADERS = {
     "Accept": "application/vnd.github+json",
 }
 
-# No privacy filter → returns ALL repos (public + private) the token can see.
-# ownerAffiliations: OWNER ensures we only count repos you own, not just starred/member repos.
 QUERY = """
 query ($login: String!, $after: String) {
   user(login: $login) {
@@ -61,10 +62,7 @@ query ($login: String!, $after: String) {
         name
         isPrivate
         languages(first: 20) {
-          edges {
-            size
-            node { name }
-          }
+          edges { size node { name } }
         }
       }
     }
@@ -72,18 +70,16 @@ query ($login: String!, $after: String) {
 }
 """
 
-# -------------------- DATA FETCH --------------------
+# -------------------- FETCH --------------------
 
 def fetch_repositories():
-    repos = []
-    cursor = None
+    repos, cursor = [], None
     while True:
         resp = requests.post(GITHUB_API, headers=HEADERS, json={
-            "query": QUERY,
-            "variables": {"login": USERNAME, "after": cursor}
+            "query": QUERY, "variables": {"login": USERNAME, "after": cursor}
         })
         if resp.status_code != 200:
-            print("GraphQL request failed:", resp.status_code, resp.text, file=sys.stderr)
+            print("GraphQL failed:", resp.status_code, resp.text, file=sys.stderr)
             sys.exit(1)
         data = resp.json()
         if data.get("errors"):
@@ -104,7 +100,8 @@ def fetch_commit_count(repo_name):
         "Accept": "application/vnd.github+json",
     })
     if r.status_code != 200:
-        print(f"Warning: commit fetch for {repo_name} returned {r.status_code}; defaulting to 1", file=sys.stderr)
+        print(f"Warning: commit fetch for {repo_name} → {r.status_code}; defaulting to 1",
+              file=sys.stderr)
         return 1
     if "Link" not in r.headers:
         try:
@@ -122,15 +119,11 @@ def fetch_commit_count(repo_name):
 # -------------------- AGGREGATION --------------------
 
 def remap(name):
-    """Apply LANGUAGE_REMAP and return None if the result is excluded."""
     name = LANGUAGE_REMAP.get(name, name)
-    if name in EXCLUDED_LANGUAGES:
-        return None
-    return name
+    return None if name in EXCLUDED_LANGUAGES else name
 
 
 def repo_language_bytes(repo):
-    """Return {language: bytes} for a single repo, after remapping."""
     result = {}
     for edge in repo.get("languages", {}).get("edges", []):
         lang = remap(edge["node"]["name"])
@@ -141,7 +134,6 @@ def repo_language_bytes(repo):
 
 
 def languages_by_bytes(repos):
-    """Left pie: total bytes written in each language across all repos."""
     totals = {}
     for repo in repos:
         for lang, size in repo_language_bytes(repo).items():
@@ -150,33 +142,23 @@ def languages_by_bytes(repos):
 
 
 def commit_weighted_languages(repos):
-    """
-    Right pie: each repo's commit count is distributed across its languages
-    proportionally by byte size.  This reflects where you actually *work*,
-    not just where you have the most lines sitting around.
-    """
     weighted = {}
     for repo in repos:
-        lang_bytes = repo_language_bytes(repo)
+        lang_bytes  = repo_language_bytes(repo)
         total_bytes = sum(lang_bytes.values()) or 1
-        commits = fetch_commit_count(repo["name"])
+        commits     = fetch_commit_count(repo["name"])
         for lang, size in lang_bytes.items():
-            share = size / total_bytes
-            weighted[lang] = weighted.get(lang, 0) + commits * share
+            weighted[lang] = weighted.get(lang, 0) + commits * (size / total_bytes)
     return weighted
 
 
-def top_n_with_other(data):
-    items = sorted(data.items(), key=lambda x: x[1], reverse=True)
-    top   = items[:TOP_N]
-    other = sum(v for _, v in items[TOP_N:])
-    if other > 0:
-        top.append(("Other", other))
-    return top
+def sorted_all(data):
+    """All languages sorted descending — no truncation."""
+    return sorted(data.items(), key=lambda x: x[1], reverse=True)
 
 # -------------------- SVG HELPERS --------------------
 
-def pie_paths(data, cx, cy, r_outer=88, r_inner=56, colors=None):
+def pie_paths(data, cx, cy, r_outer=90, r_inner=58, colors=None):
     total = sum(v for _, v in data) or 1
     angle = -math.pi / 2
     result = []
@@ -184,8 +166,8 @@ def pie_paths(data, cx, cy, r_outer=88, r_inner=56, colors=None):
         frac  = value / total
         delta = frac * 2 * math.pi
         a1, a2 = angle, angle + delta
-        large = 1 if delta > math.pi else 0
-        color = OTHER_COLOR if label == "Other" else colors[i % len(colors)]
+        large  = 1 if delta > math.pi else 0
+        color  = colors[i % len(colors)]
 
         def pt(r, a):
             return cx + r * math.cos(a), cy + r * math.sin(a)
@@ -201,52 +183,134 @@ def pie_paths(data, cx, cy, r_outer=88, r_inner=56, colors=None):
     return result
 
 
-def legend_svg(x, y, items):
+def legend_svg(x, y, items, label_max_w=190):
+    """Legend with name on the left and % right-aligned at a fixed offset."""
     out = ""
     for i, (_, color, label, pct) in enumerate(items):
-        yy = y + i * 20
-        out += f'<rect x="{x}" y="{yy-12}" width="12" height="12" fill="{color}" rx="2"/>\n'
-        out += f'<text x="{x+18}" y="{yy-2}" font-size="12" fill="{TEXT_COLOR}">{label} — {pct}%</text>\n'
+        yy = y + i * 21
+        out += (f'<rect x="{x}" y="{yy-11}" width="10" height="10" '
+                f'fill="{color}" rx="2"/>\n')
+        # truncate long names gracefully
+        display = label if len(label) <= 18 else label[:16] + "…"
+        out += (f'<text x="{x+15}" y="{yy-1}" font-size="11" fill="{TEXT_COLOR}" '
+                f'font-family="monospace">{display}</text>\n')
+        out += (f'<text x="{x + label_max_w}" y="{yy-1}" font-size="11" '
+                f'fill="{MUTED_TEXT}" font-family="monospace" '
+                f'text-anchor="end">{pct}%</text>\n')
+    return out
+
+
+def roster_svg(all_items, top_color_map, x_start, y_start, total_w, cols=4):
+    """Full language grid. top_color_map: {lang: color} for highlighted langs."""
+    col_w  = (total_w - x_start * 2) // cols
+    total  = sum(v for _, v in all_items) or 1
+    out    = ""
+    for idx, (lang, val) in enumerate(all_items):
+        col = idx % cols
+        row = idx // cols
+        x   = x_start + col * col_w
+        y   = y_start + row * 22
+
+        color = top_color_map.get(lang, ROSTER_DIM)
+        pct   = val / total * 100
+        pct_s = f"{pct:.1f}%" if pct >= 0.05 else "<0.1%"
+
+        out += (f'<rect x="{x}" y="{y-9}" width="9" height="9" '
+                f'fill="{color}" rx="1.5"/>\n')
+        display = lang if len(lang) <= 20 else lang[:18] + "…"
+        out += (f'<text x="{x+14}" y="{y}" font-size="11" fill="{TEXT_COLOR}" '
+                f'font-family="monospace">{display}</text>\n')
+        out += (f'<text x="{x + col_w - 6}" y="{y}" font-size="11" '
+                f'fill="{MUTED_TEXT}" font-family="monospace" '
+                f'text-anchor="end">{pct_s}</text>\n')
     return out
 
 # -------------------- RENDER --------------------
 
 def render_combined(repo_data, activity_data):
-    repo_top = top_n_with_other(repo_data)
-    act_top  = top_n_with_other(activity_data)
+    repo_all = sorted_all(repo_data)
+    act_all  = sorted_all(activity_data)
+    repo_top = repo_all[:TOP_N]
+    act_top  = act_all[:TOP_N]
 
-    left_legend_x,  left_legend_y  = 40,  70
-    left_pie_cx,    left_pie_cy    = 280, 160
+    # ── layout ────────────────────────────────────────────
+    W           = 880
+    COLS        = 4
+    PAD         = 30
 
-    right_legend_x, right_legend_y = 440, 70
-    right_pie_cx,   right_pie_cy   = 680, 160
+    # pie panel
+    LEG_X_L     = PAD
+    PIE_CX_L    = 318
+    LEG_X_R     = 468
+    PIE_CX_R    = 756
+    PIE_CY      = 180
+    R_OUTER     = 92
+    R_INNER     = 58
+    LEG_START_Y = 72   # y of first legend item anchor
 
-    repo_paths = pie_paths(repo_top, left_pie_cx,  left_pie_cy,  colors=REPO_COLORS)
-    act_paths  = pie_paths(act_top,  right_pie_cx, right_pie_cy, colors=ACTIVITY_COLORS)
+    pie_h = max(TOP_N * 21 + LEG_START_Y, PIE_CY + R_OUTER + 16)
 
-    # Divider line between the two panels
-    divider = f'<line x1="400" y1="20" x2="400" y2="260" stroke="{MUTED_TEXT}" stroke-width="0.5" stroke-dasharray="4 4" opacity="0.4"/>'
+    # roster panel
+    ROSTER_SEP_Y = pie_h + 24
+    ROSTER_TIT_Y = ROSTER_SEP_Y + 22
+    ROSTER_Y_0   = ROSTER_TIT_Y + 26
+    roster_rows  = math.ceil(len(repo_all) / COLS)
+    TOTAL_H      = ROSTER_Y_0 + roster_rows * 22 + PAD
 
-    svg = f'''<svg width="800" height="280" viewBox="0 0 800 280" xmlns="http://www.w3.org/2000/svg">
-  <rect width="100%" height="100%" fill="{BG_COLOR}" rx="12"/>
+    # ── color map for roster (only top-N get a color) ─────
+    top_color_map = {lang: REPO_COLORS[i] for i, (lang, _) in enumerate(repo_top)}
 
-  <!-- panel titles -->
-  <text x="40"  y="36" font-size="14" font-weight="600" fill="{TEXT_COLOR}" font-family="monospace">Languages by code size</text>
-  <text x="440" y="36" font-size="14" font-weight="600" fill="{TEXT_COLOR}" font-family="monospace">Languages by activity</text>
-  <text x="40"  y="52" font-size="10" fill="{MUTED_TEXT}" font-family="monospace">weighted by bytes across all repos (public + private)</text>
-  <text x="440" y="52" font-size="10" fill="{MUTED_TEXT}" font-family="monospace">commits distributed by byte share per repo</text>
+    # ── pie geometry ──────────────────────────────────────
+    repo_paths = pie_paths(repo_top, PIE_CX_L, PIE_CY,
+                           r_outer=R_OUTER, r_inner=R_INNER, colors=REPO_COLORS)
+    act_paths  = pie_paths(act_top,  PIE_CX_R, PIE_CY,
+                           r_outer=R_OUTER, r_inner=R_INNER, colors=ACTIVITY_COLORS)
 
-  {divider}
+    mid_x = (PIE_CX_L + R_OUTER + LEG_X_R) // 2   # divider between the two panels
 
-  <!-- left legend -->
-  {legend_svg(left_legend_x, left_legend_y, repo_paths)}
-  <!-- right legend -->
-  {legend_svg(right_legend_x, right_legend_y, act_paths)}
+    svg = f'''<svg width="{W}" height="{TOTAL_H}" viewBox="0 0 {W} {TOTAL_H}"
+     xmlns="http://www.w3.org/2000/svg">
 
-  <!-- left pie -->
+  <rect width="100%" height="100%" fill="{BG_COLOR}" rx="14"/>
+
+  <!-- ══ PIE PANELS ══════════════════════════════════════════ -->
+
+  <text x="{LEG_X_L}" y="26" font-size="13" font-weight="700"
+        fill="{TEXT_COLOR}" font-family="monospace">Code size</text>
+  <text x="{LEG_X_L}" y="42" font-size="10" fill="{MUTED_TEXT}"
+        font-family="monospace">bytes across all repos  ·  public + private</text>
+
+  <text x="{LEG_X_R}" y="26" font-size="13" font-weight="700"
+        fill="{TEXT_COLOR}" font-family="monospace">Activity</text>
+  <text x="{LEG_X_R}" y="42" font-size="10" fill="{MUTED_TEXT}"
+        font-family="monospace">commits distributed by byte share per repo</text>
+
+  <!-- vertical panel divider -->
+  <line x1="{mid_x}" y1="14" x2="{mid_x}" y2="{pie_h + 10}"
+        stroke="{BORDER}" stroke-width="1"/>
+
+  <!-- left legend + pie -->
+  {legend_svg(LEG_X_L, LEG_START_Y, repo_paths)}
   {''.join(f'<path d="{d}" fill="{c}"/>' for d, c, _, _ in repo_paths)}
-  <!-- right pie -->
+
+  <!-- right legend + pie -->
+  {legend_svg(LEG_X_R, LEG_START_Y, act_paths)}
   {''.join(f'<path d="{d}" fill="{c}"/>' for d, c, _, _ in act_paths)}
+
+  <!-- ══ ROSTER SECTION ═══════════════════════════════════════ -->
+
+  <!-- horizontal separator -->
+  <line x1="{PAD}" y1="{ROSTER_SEP_Y}" x2="{W - PAD}" y2="{ROSTER_SEP_Y}"
+        stroke="{BORDER}" stroke-width="1"/>
+
+  <text x="{PAD}" y="{ROSTER_TIT_Y}" font-size="13" font-weight="700"
+        fill="{TEXT_COLOR}" font-family="monospace">All languages detected</text>
+  <text x="{W - PAD}" y="{ROSTER_TIT_Y}" font-size="10" fill="{MUTED_TEXT}"
+        font-family="monospace" text-anchor="end"
+        >sorted by code size  ·  highlighted = top {TOP_N}</text>
+
+  {roster_svg(repo_all, top_color_map, PAD, ROSTER_Y_0, W, cols=COLS)}
+
 </svg>'''
 
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
@@ -259,15 +323,17 @@ def main():
     repos = fetch_repositories()
     pub  = sum(1 for r in repos if not r.get("isPrivate"))
     priv = sum(1 for r in repos if r.get("isPrivate"))
-    print(f"Found {len(repos)} repos ({pub} public, {priv} private)", file=sys.stderr)
+    print(f"  {len(repos)} repos  ({pub} public · {priv} private)", file=sys.stderr)
 
     repo_data     = languages_by_bytes(repos)
     activity_data = commit_weighted_languages(repos)
 
     if not repo_data:
-        print("No language data found — check token scopes.", file=sys.stderr)
+        print("No language data — check token scopes (`repo` needed for private).",
+              file=sys.stderr)
         sys.exit(1)
 
+    print(f"  {len(repo_data)} distinct languages detected", file=sys.stderr)
     render_combined(repo_data, activity_data)
     print("Wrote", OUTPUT_FILE)
 
