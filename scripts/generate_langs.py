@@ -23,15 +23,12 @@ BG_COLOR   = "#0b0f1a"
 TEXT_COLOR = "#e5e7eb"
 MUTED_TEXT = "#6b7280"
 BORDER     = "#1f2937"
+ROSTER_DIM = "#374151"
 
-# 10 colors for the pies — warm left, cool right
 REPO_COLORS     = ["#f97316","#eab308","#22c55e","#fb7185","#a78bfa",
                    "#f43f5e","#84cc16","#fbbf24","#34d399","#c084fc"]
 ACTIVITY_COLORS = ["#06b6d4","#6366f1","#00c2a8","#ff6b6b","#ffd166",
                    "#38bdf8","#818cf8","#2dd4bf","#fb923c","#e879f9"]
-
-# Roster: top-10 get a color (reused from REPO_COLORS), rest get this dim color
-ROSTER_DIM = "#374151"
 
 OUTPUT_FILE = "languages-overview.svg"
 # ------------------------------------------------
@@ -153,10 +150,14 @@ def commit_weighted_languages(repos):
 
 
 def sorted_all(data):
-    """All languages sorted descending — no truncation."""
     return sorted(data.items(), key=lambda x: x[1], reverse=True)
 
 # -------------------- SVG HELPERS --------------------
+
+def xe(s):
+    """XML-escape text so that language names like C++, C#, F# render safely."""
+    return str(s).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+
 
 def pie_paths(data, cx, cy, r_outer=90, r_inner=58, colors=None):
     total = sum(v for _, v in data) or 1
@@ -183,46 +184,39 @@ def pie_paths(data, cx, cy, r_outer=90, r_inner=58, colors=None):
     return result
 
 
-def legend_svg(x, y, items, label_max_w=190):
-    """Legend with name on the left and % right-aligned at a fixed offset."""
+def legend_svg(x, y, items, pct_x_offset=160):
     out = ""
     for i, (_, color, label, pct) in enumerate(items):
         yy = y + i * 21
+        display = xe(label) if len(label) <= 18 else xe(label[:16] + "…")
         out += (f'<rect x="{x}" y="{yy-11}" width="10" height="10" '
                 f'fill="{color}" rx="2"/>\n')
-        # truncate long names gracefully
-        display = label if len(label) <= 18 else label[:16] + "…"
         out += (f'<text x="{x+15}" y="{yy-1}" font-size="11" fill="{TEXT_COLOR}" '
                 f'font-family="monospace">{display}</text>\n')
-        out += (f'<text x="{x + label_max_w}" y="{yy-1}" font-size="11" '
+        out += (f'<text x="{x+pct_x_offset}" y="{yy-1}" font-size="11" '
                 f'fill="{MUTED_TEXT}" font-family="monospace" '
                 f'text-anchor="end">{pct}%</text>\n')
     return out
 
 
 def roster_svg(all_items, top_color_map, x_start, y_start, total_w, cols=4):
-    """Full language grid. top_color_map: {lang: color} for highlighted langs."""
-    col_w  = (total_w - x_start * 2) // cols
-    total  = sum(v for _, v in all_items) or 1
-    out    = ""
+    col_w = (total_w - x_start * 2) // cols
+    total = sum(v for _, v in all_items) or 1
+    out   = ""
     for idx, (lang, val) in enumerate(all_items):
-        col = idx % cols
-        row = idx // cols
+        col = idx % cols; row = idx // cols
         x   = x_start + col * col_w
         y   = y_start + row * 22
-
         color = top_color_map.get(lang, ROSTER_DIM)
         pct   = val / total * 100
         pct_s = f"{pct:.1f}%" if pct >= 0.05 else "<0.1%"
-
+        display = xe(lang) if len(lang) <= 20 else xe(lang[:18] + "…")
         out += (f'<rect x="{x}" y="{y-9}" width="9" height="9" '
                 f'fill="{color}" rx="1.5"/>\n')
-        display = lang if len(lang) <= 20 else lang[:18] + "…"
         out += (f'<text x="{x+14}" y="{y}" font-size="11" fill="{TEXT_COLOR}" '
                 f'font-family="monospace">{display}</text>\n')
-        out += (f'<text x="{x + col_w - 6}" y="{y}" font-size="11" '
-                f'fill="{MUTED_TEXT}" font-family="monospace" '
-                f'text-anchor="end">{pct_s}</text>\n')
+        out += (f'<text x="{x+col_w-6}" y="{y}" font-size="11" fill="{MUTED_TEXT}" '
+                f'font-family="monospace" text-anchor="end">{pct_s}</text>\n')
     return out
 
 # -------------------- RENDER --------------------
@@ -233,12 +227,9 @@ def render_combined(repo_data, activity_data):
     repo_top = repo_all[:TOP_N]
     act_top  = act_all[:TOP_N]
 
-    # ── layout ────────────────────────────────────────────
     W           = 880
     COLS        = 4
     PAD         = 30
-
-    # pie panel
     LEG_X_L     = PAD
     PIE_CX_L    = 318
     LEG_X_R     = 468
@@ -246,71 +237,60 @@ def render_combined(repo_data, activity_data):
     PIE_CY      = 180
     R_OUTER     = 92
     R_INNER     = 58
-    LEG_START_Y = 72   # y of first legend item anchor
+    LEG_START_Y = 72
 
     pie_h = max(TOP_N * 21 + LEG_START_Y, PIE_CY + R_OUTER + 16)
 
-    # roster panel
     ROSTER_SEP_Y = pie_h + 24
     ROSTER_TIT_Y = ROSTER_SEP_Y + 22
     ROSTER_Y_0   = ROSTER_TIT_Y + 26
     roster_rows  = math.ceil(len(repo_all) / COLS)
     TOTAL_H      = ROSTER_Y_0 + roster_rows * 22 + PAD
 
-    # ── color map for roster (only top-N get a color) ─────
     top_color_map = {lang: REPO_COLORS[i] for i, (lang, _) in enumerate(repo_top)}
 
-    # ── pie geometry ──────────────────────────────────────
     repo_paths = pie_paths(repo_top, PIE_CX_L, PIE_CY,
                            r_outer=R_OUTER, r_inner=R_INNER, colors=REPO_COLORS)
     act_paths  = pie_paths(act_top,  PIE_CX_R, PIE_CY,
                            r_outer=R_OUTER, r_inner=R_INNER, colors=ACTIVITY_COLORS)
 
-    mid_x = (PIE_CX_L + R_OUTER + LEG_X_R) // 2   # divider between the two panels
+    mid_x = (PIE_CX_L + R_OUTER + LEG_X_R) // 2
 
     svg = f'''<svg width="{W}" height="{TOTAL_H}" viewBox="0 0 {W} {TOTAL_H}"
      xmlns="http://www.w3.org/2000/svg">
-
   <rect width="100%" height="100%" fill="{BG_COLOR}" rx="14"/>
 
   <!-- ══ PIE PANELS ══════════════════════════════════════════ -->
-
-  <text x="{LEG_X_L}" y="26" font-size="13" font-weight="700"
+  <text x="{LEG_X_L}" y="26" font-size="13" font-weight="bold"
         fill="{TEXT_COLOR}" font-family="monospace">Code size</text>
   <text x="{LEG_X_L}" y="42" font-size="10" fill="{MUTED_TEXT}"
-        font-family="monospace">bytes across all repos  ·  public + private</text>
+        font-family="monospace">bytes across all repos · public + private</text>
 
-  <text x="{LEG_X_R}" y="26" font-size="13" font-weight="700"
+  <text x="{LEG_X_R}" y="26" font-size="13" font-weight="bold"
         fill="{TEXT_COLOR}" font-family="monospace">Activity</text>
   <text x="{LEG_X_R}" y="42" font-size="10" fill="{MUTED_TEXT}"
         font-family="monospace">commits distributed by byte share per repo</text>
 
-  <!-- vertical panel divider -->
   <line x1="{mid_x}" y1="14" x2="{mid_x}" y2="{pie_h + 10}"
         stroke="{BORDER}" stroke-width="1"/>
 
-  <!-- left legend + pie -->
   {legend_svg(LEG_X_L, LEG_START_Y, repo_paths)}
   {''.join(f'<path d="{d}" fill="{c}"/>' for d, c, _, _ in repo_paths)}
 
-  <!-- right legend + pie -->
   {legend_svg(LEG_X_R, LEG_START_Y, act_paths)}
   {''.join(f'<path d="{d}" fill="{c}"/>' for d, c, _, _ in act_paths)}
 
   <!-- ══ ROSTER SECTION ═══════════════════════════════════════ -->
-
-  <!-- horizontal separator -->
   <line x1="{PAD}" y1="{ROSTER_SEP_Y}" x2="{W - PAD}" y2="{ROSTER_SEP_Y}"
         stroke="{BORDER}" stroke-width="1"/>
 
-  <text x="{PAD}" y="{ROSTER_TIT_Y}" font-size="13" font-weight="700"
+  <text x="{PAD}" y="{ROSTER_TIT_Y}" font-size="13" font-weight="bold"
         fill="{TEXT_COLOR}" font-family="monospace">All languages detected</text>
   <text x="{W - PAD}" y="{ROSTER_TIT_Y}" font-size="10" fill="{MUTED_TEXT}"
         font-family="monospace" text-anchor="end"
-        >sorted by code size  ·  highlighted = top {TOP_N}</text>
+        >sorted by code size · highlighted = top {TOP_N}</text>
 
   {roster_svg(repo_all, top_color_map, PAD, ROSTER_Y_0, W, cols=COLS)}
-
 </svg>'''
 
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
