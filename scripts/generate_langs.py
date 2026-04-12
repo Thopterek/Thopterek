@@ -209,7 +209,7 @@ def roster_svg(all_items, top_color_map, x_start, y_start, total_w, cols=4):
         y   = y_start + row * 22
         color = top_color_map.get(lang, ROSTER_DIM)
         pct   = val / total * 100
-        pct_s = f"{pct:.1f}%" if pct >= 0.05 else "<0.1%"
+        pct_s = f"{pct:.1f}%" if pct >= 0.05 else "&lt;0.1%"
         display = xe(lang) if len(lang) <= 20 else xe(lang[:18] + "…")
         out += (f'<rect x="{x}" y="{y-9}" width="9" height="9" '
                 f'fill="{color}" rx="1.5"/>\n')
