@@ -38,16 +38,16 @@
 <text x="45" y="197" font-size="11" fill="#e5e7eb" font-family="monospace">Java</text>
 <text x="190" y="197" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">0%</text>
 <rect x="30" y="208" width="10" height="10" fill="#fbbf24" rx="2"/>
-<text x="45" y="218" font-size="11" fill="#e5e7eb" font-family="monospace">CMake</text>
+<text x="45" y="218" font-size="11" fill="#e5e7eb" font-family="monospace">Lua</text>
 <text x="190" y="218" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">0%</text>
 <rect x="30" y="229" width="10" height="10" fill="#34d399" rx="2"/>
-<text x="45" y="239" font-size="11" fill="#e5e7eb" font-family="monospace">Lua</text>
+<text x="45" y="239" font-size="11" fill="#e5e7eb" font-family="monospace">CMake</text>
 <text x="190" y="239" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">0%</text>
 <rect x="30" y="250" width="10" height="10" fill="#c084fc" rx="2"/>
 <text x="45" y="260" font-size="11" fill="#e5e7eb" font-family="monospace">JavaScript</text>
 <text x="190" y="260" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">0%</text>
 
-  <path d="M318.00,88.00 A92,92 0 0 1 359.70,262.00 L344.29,231.70 A58,58 0 0 0 318.00,122.00 Z" fill="#f97316"/><path d="M359.70,262.00 A92,92 0 0 1 227.34,164.33 L260.85,170.12 A58,58 0 0 0 344.29,231.70 Z" fill="#eab308"/><path d="M227.34,164.33 A92,92 0 0 1 268.85,102.23 L287.02,130.97 A58,58 0 0 0 260.85,170.12 Z" fill="#22c55e"/><path d="M268.85,102.23 A92,92 0 0 1 303.33,89.18 L308.75,122.74 A58,58 0 0 0 287.02,130.97 Z" fill="#fb7185"/><path d="M303.33,89.18 A92,92 0 0 1 309.74,88.37 L312.79,122.23 A58,58 0 0 0 308.75,122.74 Z" fill="#a78bfa"/><path d="M309.74,88.37 A92,92 0 0 1 312.07,88.19 L314.26,122.12 A58,58 0 0 0 312.79,122.23 Z" fill="#f43f5e"/><path d="M312.07,88.19 A92,92 0 0 1 314.27,88.08 L315.65,122.05 A58,58 0 0 0 314.26,122.12 Z" fill="#84cc16"/><path d="M314.27,88.08 A92,92 0 0 1 315.74,88.03 L316.58,122.02 A58,58 0 0 0 315.65,122.05 Z" fill="#fbbf24"/><path d="M315.74,88.03 A92,92 0 0 1 317.13,88.00 L317.45,122.00 A58,58 0 0 0 316.58,122.02 Z" fill="#34d399"/><path d="M317.13,88.00 A92,92 0 0 1 318.00,88.00 L318.00,122.00 A58,58 0 0 0 317.45,122.00 Z" fill="#c084fc"/>
+  <path d="M318.00,88.00 A92,92 0 0 1 359.77,261.97 L344.33,231.68 A58,58 0 0 0 318.00,122.00 Z" fill="#f97316"/><path d="M359.77,261.97 A92,92 0 0 1 227.32,164.45 L260.83,170.20 A58,58 0 0 0 344.33,231.68 Z" fill="#eab308"/><path d="M227.32,164.45 A92,92 0 0 1 268.73,102.31 L286.94,131.02 A58,58 0 0 0 260.83,170.20 Z" fill="#22c55e"/><path d="M268.73,102.31 A92,92 0 0 1 303.22,89.19 L308.68,122.75 A58,58 0 0 0 286.94,131.02 Z" fill="#fb7185"/><path d="M303.22,89.19 A92,92 0 0 1 309.63,88.38 L312.72,122.24 A58,58 0 0 0 308.68,122.75 Z" fill="#a78bfa"/><path d="M309.63,88.38 A92,92 0 0 1 311.95,88.20 L314.19,122.13 A58,58 0 0 0 312.72,122.24 Z" fill="#f43f5e"/><path d="M311.95,88.20 A92,92 0 0 1 314.15,88.08 L315.57,122.05 A58,58 0 0 0 314.19,122.13 Z" fill="#84cc16"/><path d="M314.15,88.08 A92,92 0 0 1 315.65,88.03 L316.52,122.02 A58,58 0 0 0 315.57,122.05 Z" fill="#fbbf24"/><path d="M315.65,88.03 A92,92 0 0 1 317.13,88.00 L317.45,122.00 A58,58 0 0 0 316.52,122.02 Z" fill="#34d399"/><path d="M317.13,88.00 A92,92 0 0 1 318.00,88.00 L318.00,122.00 A58,58 0 0 0 317.45,122.00 Z" fill="#c084fc"/>
 
   <rect x="468" y="61" width="10" height="10" fill="#06b6d4" rx="2"/>
 <text x="483" y="71" font-size="11" fill="#e5e7eb" font-family="monospace">Python</text>
@@ -68,10 +68,10 @@
 <text x="483" y="176" font-size="11" fill="#e5e7eb" font-family="monospace">Shell</text>
 <text x="628" y="176" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">6%</text>
 <rect x="468" y="187" width="10" height="10" fill="#818cf8" rx="2"/>
-<text x="483" y="197" font-size="11" fill="#e5e7eb" font-family="monospace">Java</text>
-<text x="628" y="197" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">1%</text>
+<text x="483" y="197" font-size="11" fill="#e5e7eb" font-family="monospace">Lua</text>
+<text x="628" y="197" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">2%</text>
 <rect x="468" y="208" width="10" height="10" fill="#2dd4bf" rx="2"/>
-<text x="483" y="218" font-size="11" fill="#e5e7eb" font-family="monospace">Lua</text>
+<text x="483" y="218" font-size="11" fill="#e5e7eb" font-family="monospace">Java</text>
 <text x="628" y="218" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">1%</text>
 <rect x="468" y="229" width="10" height="10" fill="#fb923c" rx="2"/>
 <text x="483" y="239" font-size="11" fill="#e5e7eb" font-family="monospace">VHDL</text>
@@ -80,7 +80,7 @@
 <text x="483" y="260" font-size="11" fill="#e5e7eb" font-family="monospace">Verilog</text>
 <text x="628" y="260" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">0%</text>
 
-  <path d="M756.00,88.00 A92,92 0 0 1 846.34,197.41 L812.95,190.97 A58,58 0 0 0 756.00,122.00 Z" fill="#06b6d4"/><path d="M846.34,197.41 A92,92 0 0 1 739.16,270.45 L745.38,237.02 A58,58 0 0 0 812.95,190.97 Z" fill="#6366f1"/><path d="M739.16,270.45 A92,92 0 0 1 664.64,190.82 L698.40,186.82 A58,58 0 0 0 745.38,237.02 Z" fill="#00c2a8"/><path d="M664.64,190.82 A92,92 0 0 1 682.89,124.15 L709.91,144.79 A58,58 0 0 0 698.40,186.82 Z" fill="#ff6b6b"/><path d="M682.89,124.15 A92,92 0 0 1 710.32,100.14 L727.20,129.66 A58,58 0 0 0 709.91,144.79 Z" fill="#ffd166"/><path d="M710.32,100.14 A92,92 0 0 1 742.62,88.98 L747.57,122.62 A58,58 0 0 0 727.20,129.66 Z" fill="#38bdf8"/><path d="M742.62,88.98 A92,92 0 0 1 748.92,88.27 L751.54,122.17 A58,58 0 0 0 747.57,122.62 Z" fill="#818cf8"/><path d="M748.92,88.27 A92,92 0 0 1 754.99,88.01 L755.36,122.00 A58,58 0 0 0 751.54,122.17 Z" fill="#2dd4bf"/><path d="M754.99,88.01 A92,92 0 0 1 755.55,88.00 L755.72,122.00 A58,58 0 0 0 755.36,122.00 Z" fill="#fb923c"/><path d="M755.55,88.00 A92,92 0 0 1 756.00,88.00 L756.00,122.00 A58,58 0 0 0 755.72,122.00 Z" fill="#e879f9"/>
+  <path d="M756.00,88.00 A92,92 0 0 1 846.52,196.46 L813.06,190.38 A58,58 0 0 0 756.00,122.00 Z" fill="#06b6d4"/><path d="M846.52,196.46 A92,92 0 0 1 741.83,270.90 L747.06,237.31 A58,58 0 0 0 813.06,190.38 Z" fill="#6366f1"/><path d="M741.83,270.90 A92,92 0 0 1 665.17,194.65 L698.74,189.24 A58,58 0 0 0 747.06,237.31 Z" fill="#00c2a8"/><path d="M665.17,194.65 A92,92 0 0 1 680.12,127.98 L708.16,147.20 A58,58 0 0 0 698.74,189.24 Z" fill="#ff6b6b"/><path d="M680.12,127.98 A92,92 0 0 1 705.90,102.84 L724.42,131.35 A58,58 0 0 0 708.16,147.20 Z" fill="#ffd166"/><path d="M705.90,102.84 A92,92 0 0 1 737.23,89.93 L744.17,123.22 A58,58 0 0 0 724.42,131.35 Z" fill="#38bdf8"/><path d="M737.23,89.93 A92,92 0 0 1 747.11,88.43 L750.40,122.27 A58,58 0 0 0 744.17,123.22 Z" fill="#818cf8"/><path d="M747.11,88.43 A92,92 0 0 1 755.00,88.01 L755.37,122.00 A58,58 0 0 0 750.40,122.27 Z" fill="#2dd4bf"/><path d="M755.00,88.01 A92,92 0 0 1 755.55,88.00 L755.72,122.00 A58,58 0 0 0 755.37,122.00 Z" fill="#fb923c"/><path d="M755.55,88.00 A92,92 0 0 1 756.00,88.00 L756.00,122.00 A58,58 0 0 0 755.72,122.00 Z" fill="#e879f9"/>
 
   <!-- ══ ROSTER SECTION ═══════════════════════════════════════ -->
   <line x1="30" y1="312" x2="850" y2="312"
@@ -114,11 +114,11 @@
 <text x="454" y="382" font-size="11" fill="#e5e7eb" font-family="monospace">Java</text>
 <text x="639" y="382" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">0.4%</text>
 <rect x="645" y="373" width="9" height="9" fill="#fbbf24" rx="1.5"/>
-<text x="659" y="382" font-size="11" fill="#e5e7eb" font-family="monospace">CMake</text>
+<text x="659" y="382" font-size="11" fill="#e5e7eb" font-family="monospace">Lua</text>
 <text x="844" y="382" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">0.3%</text>
 <rect x="30" y="395" width="9" height="9" fill="#34d399" rx="1.5"/>
-<text x="44" y="404" font-size="11" fill="#e5e7eb" font-family="monospace">Lua</text>
-<text x="229" y="404" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">0.2%</text>
+<text x="44" y="404" font-size="11" fill="#e5e7eb" font-family="monospace">CMake</text>
+<text x="229" y="404" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">0.3%</text>
 <rect x="235" y="395" width="9" height="9" fill="#c084fc" rx="1.5"/>
 <text x="249" y="404" font-size="11" fill="#e5e7eb" font-family="monospace">JavaScript</text>
 <text x="434" y="404" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">0.2%</text>
