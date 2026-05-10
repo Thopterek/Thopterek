@@ -18,7 +18,7 @@
 
   <rect x="30" y="61" width="10" height="10" fill="#f97316" rx="2"/>
 <text x="45" y="71" font-size="11" fill="#e5e7eb" font-family="monospace">Python</text>
-<text x="190" y="71" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">43%</text>
+<text x="190" y="71" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">42%</text>
 <rect x="30" y="82" width="10" height="10" fill="#eab308" rx="2"/>
 <text x="45" y="92" font-size="11" fill="#e5e7eb" font-family="monospace">C</text>
 <text x="190" y="92" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">35%</text>
@@ -47,14 +47,14 @@
 <text x="45" y="260" font-size="11" fill="#e5e7eb" font-family="monospace">JavaScript</text>
 <text x="190" y="260" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">0%</text>
 
-  <path d="M318.00,88.00 A92,92 0 0 1 359.77,261.97 L344.33,231.68 A58,58 0 0 0 318.00,122.00 Z" fill="#f97316"/><path d="M359.77,261.97 A92,92 0 0 1 227.32,164.45 L260.83,170.20 A58,58 0 0 0 344.33,231.68 Z" fill="#eab308"/><path d="M227.32,164.45 A92,92 0 0 1 268.73,102.31 L286.94,131.02 A58,58 0 0 0 260.83,170.20 Z" fill="#22c55e"/><path d="M268.73,102.31 A92,92 0 0 1 303.22,89.19 L308.68,122.75 A58,58 0 0 0 286.94,131.02 Z" fill="#fb7185"/><path d="M303.22,89.19 A92,92 0 0 1 309.63,88.38 L312.72,122.24 A58,58 0 0 0 308.68,122.75 Z" fill="#a78bfa"/><path d="M309.63,88.38 A92,92 0 0 1 311.95,88.20 L314.19,122.13 A58,58 0 0 0 312.72,122.24 Z" fill="#f43f5e"/><path d="M311.95,88.20 A92,92 0 0 1 314.15,88.08 L315.57,122.05 A58,58 0 0 0 314.19,122.13 Z" fill="#84cc16"/><path d="M314.15,88.08 A92,92 0 0 1 315.65,88.03 L316.52,122.02 A58,58 0 0 0 315.57,122.05 Z" fill="#fbbf24"/><path d="M315.65,88.03 A92,92 0 0 1 317.13,88.00 L317.45,122.00 A58,58 0 0 0 316.52,122.02 Z" fill="#34d399"/><path d="M317.13,88.00 A92,92 0 0 1 318.00,88.00 L318.00,122.00 A58,58 0 0 0 317.45,122.00 Z" fill="#c084fc"/>
+  <path d="M318.00,88.00 A92,92 0 0 1 359.90,261.90 L344.42,231.64 A58,58 0 0 0 318.00,122.00 Z" fill="#f97316"/><path d="M359.90,261.90 A92,92 0 0 1 227.28,164.72 L260.81,170.37 A58,58 0 0 0 344.42,231.64 Z" fill="#eab308"/><path d="M227.28,164.72 A92,92 0 0 1 268.46,102.48 L286.77,131.13 A58,58 0 0 0 260.81,170.37 Z" fill="#22c55e"/><path d="M268.46,102.48 A92,92 0 0 1 303.23,89.19 L308.69,122.75 A58,58 0 0 0 286.77,131.13 Z" fill="#fb7185"/><path d="M303.23,89.19 A92,92 0 0 1 309.63,88.38 L312.73,122.24 A58,58 0 0 0 308.69,122.75 Z" fill="#a78bfa"/><path d="M309.63,88.38 A92,92 0 0 1 311.96,88.20 L314.19,122.13 A58,58 0 0 0 312.73,122.24 Z" fill="#f43f5e"/><path d="M311.96,88.20 A92,92 0 0 1 314.15,88.08 L315.58,122.05 A58,58 0 0 0 314.19,122.13 Z" fill="#84cc16"/><path d="M314.15,88.08 A92,92 0 0 1 315.66,88.03 L316.52,122.02 A58,58 0 0 0 315.58,122.05 Z" fill="#fbbf24"/><path d="M315.66,88.03 A92,92 0 0 1 317.13,88.00 L317.45,122.00 A58,58 0 0 0 316.52,122.02 Z" fill="#34d399"/><path d="M317.13,88.00 A92,92 0 0 1 318.00,88.00 L318.00,122.00 A58,58 0 0 0 317.45,122.00 Z" fill="#c084fc"/>
 
   <rect x="468" y="61" width="10" height="10" fill="#06b6d4" rx="2"/>
 <text x="483" y="71" font-size="11" fill="#e5e7eb" font-family="monospace">Python</text>
 <text x="628" y="71" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">28%</text>
 <rect x="468" y="82" width="10" height="10" fill="#6366f1" rx="2"/>
 <text x="483" y="92" font-size="11" fill="#e5e7eb" font-family="monospace">C++</text>
-<text x="628" y="92" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">25%</text>
+<text x="628" y="92" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">24%</text>
 <rect x="468" y="103" width="10" height="10" fill="#00c2a8" rx="2"/>
 <text x="483" y="113" font-size="11" fill="#e5e7eb" font-family="monospace">Rust</text>
 <text x="628" y="113" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">20%</text>
@@ -80,7 +80,7 @@
 <text x="483" y="260" font-size="11" fill="#e5e7eb" font-family="monospace">Verilog</text>
 <text x="628" y="260" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">0%</text>
 
-  <path d="M756.00,88.00 A92,92 0 0 1 846.38,197.17 L812.98,190.82 A58,58 0 0 0 756.00,122.00 Z" fill="#06b6d4"/><path d="M846.38,197.17 A92,92 0 0 1 741.36,270.83 L746.77,237.26 A58,58 0 0 0 812.98,190.82 Z" fill="#6366f1"/><path d="M741.36,270.83 A92,92 0 0 1 665.13,194.38 L698.71,189.07 A58,58 0 0 0 746.77,237.26 Z" fill="#00c2a8"/><path d="M665.13,194.38 A92,92 0 0 1 680.21,127.85 L708.22,147.12 A58,58 0 0 0 698.71,189.07 Z" fill="#ff6b6b"/><path d="M680.21,127.85 A92,92 0 0 1 705.98,102.79 L724.47,131.32 A58,58 0 0 0 708.22,147.12 Z" fill="#ffd166"/><path d="M705.98,102.79 A92,92 0 0 1 737.26,89.93 L744.19,123.22 A58,58 0 0 0 724.47,131.32 Z" fill="#38bdf8"/><path d="M737.26,89.93 A92,92 0 0 1 747.13,88.43 L750.41,122.27 A58,58 0 0 0 744.19,123.22 Z" fill="#818cf8"/><path d="M747.13,88.43 A92,92 0 0 1 755.00,88.01 L755.37,122.00 A58,58 0 0 0 750.41,122.27 Z" fill="#2dd4bf"/><path d="M755.00,88.01 A92,92 0 0 1 755.55,88.00 L755.72,122.00 A58,58 0 0 0 755.37,122.00 Z" fill="#fb923c"/><path d="M755.55,88.00 A92,92 0 0 1 756.00,88.00 L756.00,122.00 A58,58 0 0 0 755.72,122.00 Z" fill="#e879f9"/>
+  <path d="M756.00,88.00 A92,92 0 0 1 846.35,197.33 L812.96,190.92 A58,58 0 0 0 756.00,122.00 Z" fill="#06b6d4"/><path d="M846.35,197.33 A92,92 0 0 1 741.92,270.92 L747.13,237.32 A58,58 0 0 0 812.96,190.92 Z" fill="#6366f1"/><path d="M741.92,270.92 A92,92 0 0 1 665.10,194.16 L698.69,188.93 A58,58 0 0 0 747.13,237.32 Z" fill="#00c2a8"/><path d="M665.10,194.16 A92,92 0 0 1 680.13,127.96 L708.17,147.19 A58,58 0 0 0 698.69,188.93 Z" fill="#ff6b6b"/><path d="M680.13,127.96 A92,92 0 0 1 705.71,102.96 L724.29,131.43 A58,58 0 0 0 708.17,147.19 Z" fill="#ffd166"/><path d="M705.71,102.96 A92,92 0 0 1 736.81,90.02 L743.90,123.28 A58,58 0 0 0 724.29,131.43 Z" fill="#38bdf8"/><path d="M736.81,90.02 A92,92 0 0 1 746.62,88.48 L750.09,122.30 A58,58 0 0 0 743.90,123.28 Z" fill="#818cf8"/><path d="M746.62,88.48 A92,92 0 0 1 755.01,88.01 L755.37,122.00 A58,58 0 0 0 750.09,122.30 Z" fill="#2dd4bf"/><path d="M755.01,88.01 A92,92 0 0 1 755.56,88.00 L755.72,122.00 A58,58 0 0 0 755.37,122.00 Z" fill="#fb923c"/><path d="M755.56,88.00 A92,92 0 0 1 756.00,88.00 L756.00,122.00 A58,58 0 0 0 755.72,122.00 Z" fill="#e879f9"/>
 
   <!-- ══ ROSTER SECTION ═══════════════════════════════════════ -->
   <line x1="30" y1="312" x2="850" y2="312"
@@ -94,7 +94,7 @@
 
   <rect x="30" y="351" width="9" height="9" fill="#f97316" rx="1.5"/>
 <text x="44" y="360" font-size="11" fill="#e5e7eb" font-family="monospace">Python</text>
-<text x="229" y="360" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">42.5%</text>
+<text x="229" y="360" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">42.4%</text>
 <rect x="235" y="351" width="9" height="9" fill="#eab308" rx="1.5"/>
 <text x="249" y="360" font-size="11" fill="#e5e7eb" font-family="monospace">C</text>
 <text x="434" y="360" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">35.2%</text>
@@ -103,7 +103,7 @@
 <text x="639" y="360" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">13.3%</text>
 <rect x="645" y="351" width="9" height="9" fill="#fb7185" rx="1.5"/>
 <text x="659" y="360" font-size="11" fill="#e5e7eb" font-family="monospace">Rust</text>
-<text x="844" y="360" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">6.4%</text>
+<text x="844" y="360" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">6.5%</text>
 <rect x="30" y="373" width="9" height="9" fill="#a78bfa" rx="1.5"/>
 <text x="44" y="382" font-size="11" fill="#e5e7eb" font-family="monospace">Shell</text>
 <text x="229" y="382" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">1.1%</text>
