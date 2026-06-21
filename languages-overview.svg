@@ -63,7 +63,7 @@
 <text x="628" y="134" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">11%</text>
 <rect x="468" y="145" width="10" height="10" fill="#ffd166" rx="2"/>
 <text x="483" y="155" font-size="11" fill="#e5e7eb" font-family="monospace">Go</text>
-<text x="628" y="155" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">6%</text>
+<text x="628" y="155" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">7%</text>
 <rect x="468" y="166" width="10" height="10" fill="#38bdf8" rx="2"/>
 <text x="483" y="176" font-size="11" fill="#e5e7eb" font-family="monospace">Shell</text>
 <text x="628" y="176" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">6%</text>
@@ -72,7 +72,7 @@
 <text x="628" y="197" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">6%</text>
 <rect x="468" y="208" width="10" height="10" fill="#2dd4bf" rx="2"/>
 <text x="483" y="218" font-size="11" fill="#e5e7eb" font-family="monospace">Svelte</text>
-<text x="628" y="218" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">2%</text>
+<text x="628" y="218" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">3%</text>
 <rect x="468" y="229" width="10" height="10" fill="#fb923c" rx="2"/>
 <text x="483" y="239" font-size="11" fill="#e5e7eb" font-family="monospace">Lua</text>
 <text x="628" y="239" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">2%</text>
@@ -80,7 +80,7 @@
 <text x="483" y="260" font-size="11" fill="#e5e7eb" font-family="monospace">Java</text>
 <text x="628" y="260" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">1%</text>
 
-  <path d="M756.00,88.00 A92,92 0 0 1 847.87,184.80 L813.92,183.02 A58,58 0 0 0 756.00,122.00 Z" fill="#06b6d4"/><path d="M847.87,184.80 A92,92 0 0 1 769.34,271.03 L764.41,237.39 A58,58 0 0 0 813.92,183.02 Z" fill="#6366f1"/><path d="M769.34,271.03 A92,92 0 0 1 678.11,228.96 L706.89,210.87 A58,58 0 0 0 764.41,237.39 Z" fill="#00c2a8"/><path d="M678.11,228.96 A92,92 0 0 1 664.96,166.77 L698.60,171.66 A58,58 0 0 0 706.89,210.87 Z" fill="#ff6b6b"/><path d="M664.96,166.77 A92,92 0 0 1 676.60,133.53 L705.94,150.70 A58,58 0 0 0 698.60,171.66 Z" fill="#ffd166"/><path d="M676.60,133.53 A92,92 0 0 1 697.57,108.94 L719.16,135.20 A58,58 0 0 0 705.94,150.70 Z" fill="#38bdf8"/><path d="M697.57,108.94 A92,92 0 0 1 725.48,93.21 L736.76,125.28 A58,58 0 0 0 719.16,135.20 Z" fill="#818cf8"/><path d="M725.48,93.21 A92,92 0 0 1 738.53,89.67 L744.99,123.06 A58,58 0 0 0 736.76,125.28 Z" fill="#2dd4bf"/><path d="M738.53,89.67 A92,92 0 0 1 748.21,88.33 L751.09,122.21 A58,58 0 0 0 744.99,123.06 Z" fill="#fb923c"/><path d="M748.21,88.33 A92,92 0 0 1 756.00,88.00 L756.00,122.00 A58,58 0 0 0 751.09,122.21 Z" fill="#e879f9"/>
+  <path d="M756.00,88.00 A92,92 0 0 1 847.89,184.42 L813.93,182.79 A58,58 0 0 0 756.00,122.00 Z" fill="#06b6d4"/><path d="M847.89,184.42 A92,92 0 0 1 770.77,270.81 L765.31,237.25 A58,58 0 0 0 813.93,182.79 Z" fill="#6366f1"/><path d="M770.77,270.81 A92,92 0 0 1 679.38,230.92 L707.69,212.10 A58,58 0 0 0 765.31,237.25 Z" fill="#00c2a8"/><path d="M679.38,230.92 A92,92 0 0 1 664.59,169.63 L698.37,173.46 A58,58 0 0 0 707.69,212.10 Z" fill="#ff6b6b"/><path d="M664.59,169.63 A92,92 0 0 1 676.39,133.89 L705.81,150.93 A58,58 0 0 0 698.37,173.46 Z" fill="#ffd166"/><path d="M676.39,133.89 A92,92 0 0 1 697.17,109.27 L718.91,135.41 A58,58 0 0 0 705.81,150.93 Z" fill="#38bdf8"/><path d="M697.17,109.27 A92,92 0 0 1 724.73,93.48 L736.29,125.45 A58,58 0 0 0 718.91,135.41 Z" fill="#818cf8"/><path d="M724.73,93.48 A92,92 0 0 1 738.68,89.65 L745.08,123.04 A58,58 0 0 0 736.29,125.45 Z" fill="#2dd4bf"/><path d="M738.68,89.65 A92,92 0 0 1 748.27,88.32 L751.13,122.20 A58,58 0 0 0 745.08,123.04 Z" fill="#fb923c"/><path d="M748.27,88.32 A92,92 0 0 1 756.00,88.00 L756.00,122.00 A58,58 0 0 0 751.13,122.20 Z" fill="#e879f9"/>
 
   <!-- ══ ROSTER SECTION ═══════════════════════════════════════ -->
   <line x1="30" y1="312" x2="850" y2="312"
@@ -135,16 +135,16 @@
 <text x="249" y="426" font-size="11" fill="#e5e7eb" font-family="monospace">GLSL</text>
 <text x="434" y="426" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">&lt;0.1%</text>
 <rect x="440" y="417" width="9" height="9" fill="#374151" rx="1.5"/>
-<text x="454" y="426" font-size="11" fill="#e5e7eb" font-family="monospace">TypeScript</text>
+<text x="454" y="426" font-size="11" fill="#e5e7eb" font-family="monospace">Haskell</text>
 <text x="639" y="426" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">&lt;0.1%</text>
 <rect x="645" y="417" width="9" height="9" fill="#374151" rx="1.5"/>
-<text x="659" y="426" font-size="11" fill="#e5e7eb" font-family="monospace">VHDL</text>
+<text x="659" y="426" font-size="11" fill="#e5e7eb" font-family="monospace">TypeScript</text>
 <text x="844" y="426" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">&lt;0.1%</text>
 <rect x="30" y="439" width="9" height="9" fill="#374151" rx="1.5"/>
-<text x="44" y="448" font-size="11" fill="#e5e7eb" font-family="monospace">Verilog</text>
+<text x="44" y="448" font-size="11" fill="#e5e7eb" font-family="monospace">VHDL</text>
 <text x="229" y="448" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">&lt;0.1%</text>
 <rect x="235" y="439" width="9" height="9" fill="#374151" rx="1.5"/>
-<text x="249" y="448" font-size="11" fill="#e5e7eb" font-family="monospace">Haskell</text>
+<text x="249" y="448" font-size="11" fill="#e5e7eb" font-family="monospace">Verilog</text>
 <text x="434" y="448" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">&lt;0.1%</text>
 
 </svg>
