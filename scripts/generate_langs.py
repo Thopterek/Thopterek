@@ -76,7 +76,7 @@ def fetch_repositories():
             "query": QUERY, "variables": {"login": USERNAME, "after": cursor}
         })
         if resp.status_code != 200:
-            print("GraphQL failed:", resp.status_code, resp.text, file=sys.stderr)
+            print("GraphQL failed:", resp.status_code, file=sys.stderr)
             sys.exit(1)
         data = resp.json()
         if data.get("errors"):
@@ -97,7 +97,7 @@ def fetch_commit_count(repo_name):
         "Accept": "application/vnd.github+json",
     })
     if r.status_code != 200:
-        print(f"Warning: commit fetch for {repo_name} → {r.status_code}; defaulting to 1",
+        print(f"Warning: commit fetch failed → {r.status_code}; defaulting to 1",
               file=sys.stderr)
         return 1
     if "Link" not in r.headers:
