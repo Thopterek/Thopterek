@@ -1,174 +1,186 @@
-<svg width="880" height="544" viewBox="0 0 880 544"
+<svg width="880" height="613" viewBox="0 0 880 613"
      xmlns="http://www.w3.org/2000/svg">
   <rect width="100%" height="100%" fill="#0b0f1a" rx="14"/>
 
   <!-- ══ PIE PANELS ══════════════════════════════════════════ -->
   <text x="30" y="26" font-size="13" font-weight="bold"
-        fill="#e5e7eb" font-family="monospace">Code size</text>
+        fill="#e5e7eb" font-family="monospace">Reach</text>
   <text x="30" y="42" font-size="10" fill="#6b7280"
-        font-family="monospace">bytes across all repos I commit to · public + private</text>
+        font-family="monospace">repos each language appears in</text>
 
   <text x="468" y="26" font-size="13" font-weight="bold"
-        fill="#e5e7eb" font-family="monospace">Activity</text>
+        fill="#e5e7eb" font-family="monospace">My work</text>
   <text x="468" y="42" font-size="10" fill="#6b7280"
-        font-family="monospace">my commits, split by byte share per repo</text>
+        font-family="monospace">lines added + deleted by me · notebook outputs stripped</text>
 
-  <line x1="439" y1="14" x2="439" y2="298"
+  <line x1="439" y1="14" x2="439" y2="313"
         stroke="#1f2937" stroke-width="1"/>
 
   <rect x="30" y="61" width="10" height="10" fill="#f97316" rx="2"/>
-<text x="45" y="71" font-size="11" fill="#e5e7eb" font-family="monospace">Jupyter Notebook</text>
-<text x="190" y="71" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">54%</text>
+<text x="45" y="71" font-size="11" fill="#e5e7eb" font-family="monospace">Makefile</text>
+<text x="200" y="71" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">8×</text>
 <rect x="30" y="82" width="10" height="10" fill="#eab308" rx="2"/>
-<text x="45" y="92" font-size="11" fill="#e5e7eb" font-family="monospace">C</text>
-<text x="190" y="92" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">22%</text>
+<text x="45" y="92" font-size="11" fill="#e5e7eb" font-family="monospace">Python</text>
+<text x="200" y="92" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">8×</text>
 <rect x="30" y="103" width="10" height="10" fill="#22c55e" rx="2"/>
-<text x="45" y="113" font-size="11" fill="#e5e7eb" font-family="monospace">C++</text>
-<text x="190" y="113" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">7%</text>
+<text x="45" y="113" font-size="11" fill="#e5e7eb" font-family="monospace">C</text>
+<text x="200" y="113" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">7×</text>
 <rect x="30" y="124" width="10" height="10" fill="#fb7185" rx="2"/>
-<text x="45" y="134" font-size="11" fill="#e5e7eb" font-family="monospace">Python</text>
-<text x="190" y="134" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">6%</text>
+<text x="45" y="134" font-size="11" fill="#e5e7eb" font-family="monospace">HTML</text>
+<text x="200" y="134" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">5×</text>
 <rect x="30" y="145" width="10" height="10" fill="#a78bfa" rx="2"/>
-<text x="45" y="155" font-size="11" fill="#e5e7eb" font-family="monospace">Rust</text>
-<text x="190" y="155" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">3%</text>
+<text x="45" y="155" font-size="11" fill="#e5e7eb" font-family="monospace">JavaScript</text>
+<text x="200" y="155" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">5×</text>
 <rect x="30" y="166" width="10" height="10" fill="#f43f5e" rx="2"/>
-<text x="45" y="176" font-size="11" fill="#e5e7eb" font-family="monospace">CSS</text>
-<text x="190" y="176" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">2%</text>
+<text x="45" y="176" font-size="11" fill="#e5e7eb" font-family="monospace">Rust</text>
+<text x="200" y="176" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">5×</text>
 <rect x="30" y="187" width="10" height="10" fill="#84cc16" rx="2"/>
-<text x="45" y="197" font-size="11" fill="#e5e7eb" font-family="monospace">HTML</text>
-<text x="190" y="197" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">2%</text>
+<text x="45" y="197" font-size="11" fill="#e5e7eb" font-family="monospace">Shell</text>
+<text x="200" y="197" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">5×</text>
 <rect x="30" y="208" width="10" height="10" fill="#fbbf24" rx="2"/>
-<text x="45" y="218" font-size="11" fill="#e5e7eb" font-family="monospace">JavaScript</text>
-<text x="190" y="218" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">2%</text>
+<text x="45" y="218" font-size="11" fill="#e5e7eb" font-family="monospace">Assembly</text>
+<text x="200" y="218" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">4×</text>
 <rect x="30" y="229" width="10" height="10" fill="#34d399" rx="2"/>
-<text x="45" y="239" font-size="11" fill="#e5e7eb" font-family="monospace">C#</text>
-<text x="190" y="239" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">1%</text>
+<text x="45" y="239" font-size="11" fill="#e5e7eb" font-family="monospace">C++</text>
+<text x="200" y="239" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">4×</text>
 <rect x="30" y="250" width="10" height="10" fill="#c084fc" rx="2"/>
-<text x="45" y="260" font-size="11" fill="#e5e7eb" font-family="monospace">Go</text>
-<text x="190" y="260" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">1%</text>
+<text x="45" y="260" font-size="11" fill="#e5e7eb" font-family="monospace">CSS</text>
+<text x="200" y="260" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">4×</text>
+<rect x="30" y="271" width="10" height="10" fill="#4b5563" rx="2"/>
+<text x="45" y="281" font-size="11" fill="#e5e7eb" font-family="monospace">Other (16 langs)</text>
+<text x="200" y="281" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">20×</text>
 
-  <path d="M318.00,88.00 A92,92 0 1 1 293.40,268.65 L302.49,235.89 A58,58 0 1 0 318.00,122.00 Z" fill="#f97316"/><path d="M293.40,268.65 A92,92 0 0 1 226.16,174.56 L260.10,176.57 A58,58 0 0 0 302.49,235.89 Z" fill="#eab308"/><path d="M226.16,174.56 A92,92 0 0 1 236.74,136.85 L266.77,152.80 A58,58 0 0 0 260.10,176.57 Z" fill="#22c55e"/><path d="M236.74,136.85 A92,92 0 0 1 258.70,109.66 L280.62,135.66 A58,58 0 0 0 266.77,152.80 Z" fill="#fb7185"/><path d="M258.70,109.66 A92,92 0 0 1 274.90,98.72 L290.83,128.76 A58,58 0 0 0 280.62,135.66 Z" fill="#a78bfa"/><path d="M274.90,98.72 A92,92 0 0 1 286.73,93.48 L298.29,125.45 A58,58 0 0 0 290.83,128.76 Z" fill="#f43f5e"/><path d="M286.73,93.48 A92,92 0 0 1 296.08,90.65 L304.18,123.67 A58,58 0 0 0 298.29,125.45 Z" fill="#84cc16"/><path d="M296.08,90.65 A92,92 0 0 1 305.46,88.86 L310.09,122.54 A58,58 0 0 0 304.18,123.67 Z" fill="#fbbf24"/><path d="M305.46,88.86 A92,92 0 0 1 313.70,88.10 L315.29,122.06 A58,58 0 0 0 310.09,122.54 Z" fill="#34d399"/><path d="M313.70,88.10 A92,92 0 0 1 318.00,88.00 L318.00,122.00 A58,58 0 0 0 315.29,122.06 Z" fill="#c084fc"/>
+  <path d="M318.00,88.00 A92,92 0 0 1 375.15,107.90 L354.03,134.55 A58,58 0 0 0 318.00,122.00 Z" fill="#f97316"/><path d="M375.15,107.90 A92,92 0 0 1 407.57,158.99 L374.47,166.76 A58,58 0 0 0 354.03,134.55 Z" fill="#eab308"/><path d="M407.57,158.99 A92,92 0 0 1 404.23,212.07 L372.36,200.22 A58,58 0 0 0 374.47,166.76 Z" fill="#22c55e"/><path d="M404.23,212.07 A92,92 0 0 1 383.73,244.37 L359.44,220.58 A58,58 0 0 0 372.36,200.22 Z" fill="#fb7185"/><path d="M383.73,244.37 A92,92 0 0 1 351.87,265.54 L339.35,233.93 A58,58 0 0 0 359.44,220.58 Z" fill="#a78bfa"/><path d="M351.87,265.54 A92,92 0 0 1 314.15,271.92 L315.57,237.95 A58,58 0 0 0 339.35,233.93 Z" fill="#f43f5e"/><path d="M314.15,271.92 A92,92 0 0 1 277.09,262.41 L292.21,231.95 A58,58 0 0 0 315.57,237.95 Z" fill="#84cc16"/><path d="M277.09,262.41 A92,92 0 0 1 252.27,244.37 L276.56,220.58 A58,58 0 0 0 292.21,231.95 Z" fill="#fbbf24"/><path d="M252.27,244.37 A92,92 0 0 1 234.76,219.17 L265.52,204.70 A58,58 0 0 0 276.56,220.58 Z" fill="#34d399"/><path d="M234.76,219.17 A92,92 0 0 1 226.50,189.62 L260.32,186.06 A58,58 0 0 0 265.52,204.70 Z" fill="#c084fc"/><path d="M226.50,189.62 A92,92 0 0 1 318.00,88.00 L318.00,122.00 A58,58 0 0 0 260.32,186.06 Z" fill="#4b5563"/>
 
   <rect x="468" y="61" width="10" height="10" fill="#06b6d4" rx="2"/>
 <text x="483" y="71" font-size="11" fill="#e5e7eb" font-family="monospace">C</text>
-<text x="628" y="71" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">26%</text>
+<text x="638" y="71" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">20k</text>
 <rect x="468" y="82" width="10" height="10" fill="#6366f1" rx="2"/>
-<text x="483" y="92" font-size="11" fill="#e5e7eb" font-family="monospace">Rust</text>
-<text x="628" y="92" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">20%</text>
+<text x="483" y="92" font-size="11" fill="#e5e7eb" font-family="monospace">C++</text>
+<text x="638" y="92" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">16k</text>
 <rect x="468" y="103" width="10" height="10" fill="#00c2a8" rx="2"/>
-<text x="483" y="113" font-size="11" fill="#e5e7eb" font-family="monospace">C++</text>
-<text x="628" y="113" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">15%</text>
+<text x="483" y="113" font-size="11" fill="#e5e7eb" font-family="monospace">GCC Machine Descri…</text>
+<text x="638" y="113" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">16k</text>
 <rect x="468" y="124" width="10" height="10" fill="#ff6b6b" rx="2"/>
-<text x="483" y="134" font-size="11" fill="#e5e7eb" font-family="monospace">Python</text>
-<text x="628" y="134" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">11%</text>
+<text x="483" y="134" font-size="11" fill="#e5e7eb" font-family="monospace">Rust</text>
+<text x="638" y="134" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">10k</text>
 <rect x="468" y="145" width="10" height="10" fill="#ffd166" rx="2"/>
-<text x="483" y="155" font-size="11" fill="#e5e7eb" font-family="monospace">Jupyter Notebook</text>
-<text x="628" y="155" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">10%</text>
+<text x="483" y="155" font-size="11" fill="#e5e7eb" font-family="monospace">Python</text>
+<text x="638" y="155" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">9.8k</text>
 <rect x="468" y="166" width="10" height="10" fill="#38bdf8" rx="2"/>
-<text x="483" y="176" font-size="11" fill="#e5e7eb" font-family="monospace">Assembly</text>
-<text x="628" y="176" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">6%</text>
+<text x="483" y="176" font-size="11" fill="#e5e7eb" font-family="monospace">CSS</text>
+<text x="638" y="176" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">5.9k</text>
 <rect x="468" y="187" width="10" height="10" fill="#818cf8" rx="2"/>
-<text x="483" y="197" font-size="11" fill="#e5e7eb" font-family="monospace">Shell</text>
-<text x="628" y="197" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">5%</text>
+<text x="483" y="197" font-size="11" fill="#e5e7eb" font-family="monospace">JavaScript</text>
+<text x="638" y="197" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">3.0k</text>
 <rect x="468" y="208" width="10" height="10" fill="#2dd4bf" rx="2"/>
-<text x="483" y="218" font-size="11" fill="#e5e7eb" font-family="monospace">HTML</text>
-<text x="628" y="218" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">4%</text>
+<text x="483" y="218" font-size="11" fill="#e5e7eb" font-family="monospace">C#</text>
+<text x="638" y="218" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">2.9k</text>
 <rect x="468" y="229" width="10" height="10" fill="#fb923c" rx="2"/>
-<text x="483" y="239" font-size="11" fill="#e5e7eb" font-family="monospace">Go</text>
-<text x="628" y="239" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">3%</text>
+<text x="483" y="239" font-size="11" fill="#e5e7eb" font-family="monospace">HTML</text>
+<text x="638" y="239" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">2.0k</text>
 <rect x="468" y="250" width="10" height="10" fill="#e879f9" rx="2"/>
-<text x="483" y="260" font-size="11" fill="#e5e7eb" font-family="monospace">CSS</text>
-<text x="628" y="260" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">2%</text>
+<text x="483" y="260" font-size="11" fill="#e5e7eb" font-family="monospace">Shell</text>
+<text x="638" y="260" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">1.8k</text>
+<rect x="468" y="271" width="10" height="10" fill="#4b5563" rx="2"/>
+<text x="483" y="281" font-size="11" fill="#e5e7eb" font-family="monospace">Other (14 langs)</text>
+<text x="638" y="281" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">6.2k</text>
 
-  <path d="M756.00,88.00 A92,92 0 0 1 847.93,183.51 L813.96,182.21 A58,58 0 0 0 756.00,122.00 Z" fill="#06b6d4"/><path d="M847.93,183.51 A92,92 0 0 1 781.73,268.33 L772.22,235.69 A58,58 0 0 0 813.96,182.21 Z" fill="#6366f1"/><path d="M781.73,268.33 A92,92 0 0 1 700.16,253.11 L720.79,226.09 A58,58 0 0 0 772.22,235.69 Z" fill="#00c2a8"/><path d="M700.16,253.11 A92,92 0 0 1 666.96,203.13 L699.86,194.58 A58,58 0 0 0 720.79,226.09 Z" fill="#ff6b6b"/><path d="M666.96,203.13 A92,92 0 0 1 669.53,148.60 L701.48,160.20 A58,58 0 0 0 699.86,194.58 Z" fill="#ffd166"/><path d="M669.53,148.60 A92,92 0 0 1 687.84,118.20 L713.03,141.04 A58,58 0 0 0 701.48,160.20 Z" fill="#38bdf8"/><path d="M687.84,118.20 A92,92 0 0 1 707.82,101.63 L725.62,130.59 A58,58 0 0 0 713.03,141.04 Z" fill="#818cf8"/><path d="M707.82,101.63 A92,92 0 0 1 728.09,92.33 L738.41,124.73 A58,58 0 0 0 725.62,130.59 Z" fill="#2dd4bf"/><path d="M728.09,92.33 A92,92 0 0 1 745.71,88.58 L749.51,122.36 A58,58 0 0 0 738.41,124.73 Z" fill="#fb923c"/><path d="M745.71,88.58 A92,92 0 0 1 756.00,88.00 L756.00,122.00 A58,58 0 0 0 749.51,122.36 Z" fill="#e879f9"/>
+  <path d="M756.00,88.00 A92,92 0 0 1 845.36,158.12 L812.34,166.21 A58,58 0 0 0 756.00,122.00 Z" fill="#06b6d4"/><path d="M845.36,158.12 A92,92 0 0 1 817.64,248.30 L794.86,223.06 A58,58 0 0 0 812.34,166.21 Z" fill="#6366f1"/><path d="M817.64,248.30 A92,92 0 0 1 727.43,267.45 L737.99,235.13 A58,58 0 0 0 794.86,223.06 Z" fill="#00c2a8"/><path d="M727.43,267.45 A92,92 0 0 1 677.75,228.39 L706.67,210.51 A58,58 0 0 0 737.99,235.13 Z" fill="#ff6b6b"/><path d="M677.75,228.39 A92,92 0 0 1 664.51,170.33 L698.32,173.90 A58,58 0 0 0 706.67,210.51 Z" fill="#ffd166"/><path d="M664.51,170.33 A92,92 0 0 1 675.38,135.67 L705.18,152.05 A58,58 0 0 0 698.32,173.90 Z" fill="#38bdf8"/><path d="M675.38,135.67 A92,92 0 0 1 685.70,120.66 L711.68,142.59 A58,58 0 0 0 705.18,152.05 Z" fill="#818cf8"/><path d="M685.70,120.66 A92,92 0 0 1 698.72,108.01 L719.89,134.61 A58,58 0 0 0 711.68,142.59 Z" fill="#2dd4bf"/><path d="M698.72,108.01 A92,92 0 0 1 708.80,101.03 L726.25,130.21 A58,58 0 0 0 719.89,134.61 Z" fill="#fb923c"/><path d="M708.80,101.03 A92,92 0 0 1 718.69,95.91 L732.48,126.98 A58,58 0 0 0 726.25,130.21 Z" fill="#e879f9"/><path d="M718.69,95.91 A92,92 0 0 1 756.00,88.00 L756.00,122.00 A58,58 0 0 0 732.48,126.98 Z" fill="#4b5563"/>
 
-  <!-- ══ ROSTER SECTION ═══════════════════════════════════════ -->
-  <line x1="30" y1="312" x2="850" y2="312"
+  <!-- ══ ROSTER ═══════════════════════════════════════════════ -->
+  <line x1="30" y1="327" x2="850" y2="327"
         stroke="#1f2937" stroke-width="1"/>
 
-  <text x="30" y="334" font-size="13" font-weight="bold"
+  <text x="30" y="349" font-size="13" font-weight="bold"
         fill="#e5e7eb" font-family="monospace">All languages detected</text>
-  <text x="850" y="334" font-size="10" fill="#6b7280"
+  <text x="850" y="349" font-size="10" fill="#6b7280"
         font-family="monospace" text-anchor="end"
-        >sorted by code size · highlighted = top 10</text>
+        >repos × · lines · highlighted = top 10 by reach</text>
 
-  <rect x="30" y="351" width="9" height="9" fill="#f97316" rx="1.5"/>
-<text x="44" y="360" font-size="11" fill="#e5e7eb" font-family="monospace">Jupyter Notebook</text>
-<text x="229" y="360" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">53.3%</text>
-<rect x="235" y="351" width="9" height="9" fill="#eab308" rx="1.5"/>
-<text x="249" y="360" font-size="11" fill="#e5e7eb" font-family="monospace">C</text>
-<text x="434" y="360" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">21.2%</text>
-<rect x="440" y="351" width="9" height="9" fill="#22c55e" rx="1.5"/>
-<text x="454" y="360" font-size="11" fill="#e5e7eb" font-family="monospace">C++</text>
-<text x="639" y="360" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">6.7%</text>
-<rect x="645" y="351" width="9" height="9" fill="#fb7185" rx="1.5"/>
-<text x="659" y="360" font-size="11" fill="#e5e7eb" font-family="monospace">Python</text>
-<text x="844" y="360" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">6.0%</text>
-<rect x="30" y="373" width="9" height="9" fill="#a78bfa" rx="1.5"/>
-<text x="44" y="382" font-size="11" fill="#e5e7eb" font-family="monospace">Rust</text>
-<text x="229" y="382" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">3.3%</text>
-<rect x="235" y="373" width="9" height="9" fill="#f43f5e" rx="1.5"/>
-<text x="249" y="382" font-size="11" fill="#e5e7eb" font-family="monospace">CSS</text>
-<text x="434" y="382" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">2.2%</text>
-<rect x="440" y="373" width="9" height="9" fill="#84cc16" rx="1.5"/>
-<text x="454" y="382" font-size="11" fill="#e5e7eb" font-family="monospace">HTML</text>
-<text x="639" y="382" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">1.7%</text>
-<rect x="645" y="373" width="9" height="9" fill="#fbbf24" rx="1.5"/>
-<text x="659" y="382" font-size="11" fill="#e5e7eb" font-family="monospace">JavaScript</text>
-<text x="844" y="382" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">1.6%</text>
-<rect x="30" y="395" width="9" height="9" fill="#34d399" rx="1.5"/>
-<text x="44" y="404" font-size="11" fill="#e5e7eb" font-family="monospace">C#</text>
-<text x="229" y="404" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">1.4%</text>
-<rect x="235" y="395" width="9" height="9" fill="#c084fc" rx="1.5"/>
-<text x="249" y="404" font-size="11" fill="#e5e7eb" font-family="monospace">Go</text>
-<text x="434" y="404" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">0.7%</text>
-<rect x="440" y="395" width="9" height="9" fill="#374151" rx="1.5"/>
-<text x="454" y="404" font-size="11" fill="#e5e7eb" font-family="monospace">Makefile</text>
-<text x="639" y="404" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">0.5%</text>
-<rect x="645" y="395" width="9" height="9" fill="#374151" rx="1.5"/>
-<text x="659" y="404" font-size="11" fill="#e5e7eb" font-family="monospace">Shell</text>
-<text x="844" y="404" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">0.3%</text>
-<rect x="30" y="417" width="9" height="9" fill="#374151" rx="1.5"/>
-<text x="44" y="426" font-size="11" fill="#e5e7eb" font-family="monospace">Svelte</text>
-<text x="229" y="426" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">0.3%</text>
-<rect x="235" y="417" width="9" height="9" fill="#374151" rx="1.5"/>
-<text x="249" y="426" font-size="11" fill="#e5e7eb" font-family="monospace">Assembly</text>
-<text x="434" y="426" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">0.2%</text>
-<rect x="440" y="417" width="9" height="9" fill="#374151" rx="1.5"/>
-<text x="454" y="426" font-size="11" fill="#e5e7eb" font-family="monospace">Java</text>
-<text x="639" y="426" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">0.2%</text>
-<rect x="645" y="417" width="9" height="9" fill="#374151" rx="1.5"/>
-<text x="659" y="426" font-size="11" fill="#e5e7eb" font-family="monospace">Lua</text>
-<text x="844" y="426" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">0.1%</text>
-<rect x="30" y="439" width="9" height="9" fill="#374151" rx="1.5"/>
-<text x="44" y="448" font-size="11" fill="#e5e7eb" font-family="monospace">CMake</text>
-<text x="229" y="448" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">0.1%</text>
-<rect x="235" y="439" width="9" height="9" fill="#374151" rx="1.5"/>
-<text x="249" y="448" font-size="11" fill="#e5e7eb" font-family="monospace">Dockerfile</text>
-<text x="434" y="448" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">0.1%</text>
-<rect x="440" y="439" width="9" height="9" fill="#374151" rx="1.5"/>
-<text x="454" y="448" font-size="11" fill="#e5e7eb" font-family="monospace">Elixir</text>
-<text x="639" y="448" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">&lt;0.1%</text>
-<rect x="645" y="439" width="9" height="9" fill="#374151" rx="1.5"/>
-<text x="659" y="448" font-size="11" fill="#e5e7eb" font-family="monospace">Haskell</text>
-<text x="844" y="448" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">&lt;0.1%</text>
-<rect x="30" y="461" width="9" height="9" fill="#374151" rx="1.5"/>
-<text x="44" y="470" font-size="11" fill="#e5e7eb" font-family="monospace">GLSL</text>
-<text x="229" y="470" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">&lt;0.1%</text>
-<rect x="235" y="461" width="9" height="9" fill="#374151" rx="1.5"/>
-<text x="249" y="470" font-size="11" fill="#e5e7eb" font-family="monospace">Batchfile</text>
-<text x="434" y="470" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">&lt;0.1%</text>
-<rect x="440" y="461" width="9" height="9" fill="#374151" rx="1.5"/>
-<text x="454" y="470" font-size="11" fill="#e5e7eb" font-family="monospace">TypeScript</text>
-<text x="639" y="470" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">&lt;0.1%</text>
-<rect x="645" y="461" width="9" height="9" fill="#374151" rx="1.5"/>
-<text x="659" y="470" font-size="11" fill="#e5e7eb" font-family="monospace">PowerShell</text>
-<text x="844" y="470" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">&lt;0.1%</text>
-<rect x="30" y="483" width="9" height="9" fill="#374151" rx="1.5"/>
-<text x="44" y="492" font-size="11" fill="#e5e7eb" font-family="monospace">VHDL</text>
-<text x="229" y="492" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">&lt;0.1%</text>
-<rect x="235" y="483" width="9" height="9" fill="#374151" rx="1.5"/>
-<text x="249" y="492" font-size="11" fill="#e5e7eb" font-family="monospace">Verilog</text>
-<text x="434" y="492" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">&lt;0.1%</text>
+  <rect x="30" y="366" width="9" height="9" fill="#eab308" rx="1.5"/>
+<text x="44" y="375" font-size="11" fill="#e5e7eb" font-family="monospace">Python</text>
+<text x="297" y="375" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">8× · 9.8k</text>
+<rect x="303" y="366" width="9" height="9" fill="#f97316" rx="1.5"/>
+<text x="317" y="375" font-size="11" fill="#e5e7eb" font-family="monospace">Makefile</text>
+<text x="570" y="375" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">8× · 1.7k</text>
+<rect x="576" y="366" width="9" height="9" fill="#22c55e" rx="1.5"/>
+<text x="590" y="375" font-size="11" fill="#e5e7eb" font-family="monospace">C</text>
+<text x="843" y="375" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">7× · 20k</text>
+<rect x="30" y="388" width="9" height="9" fill="#f43f5e" rx="1.5"/>
+<text x="44" y="397" font-size="11" fill="#e5e7eb" font-family="monospace">Rust</text>
+<text x="297" y="397" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">5× · 10k</text>
+<rect x="303" y="388" width="9" height="9" fill="#a78bfa" rx="1.5"/>
+<text x="317" y="397" font-size="11" fill="#e5e7eb" font-family="monospace">JavaScript</text>
+<text x="570" y="397" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">5× · 3.0k</text>
+<rect x="576" y="388" width="9" height="9" fill="#fb7185" rx="1.5"/>
+<text x="590" y="397" font-size="11" fill="#e5e7eb" font-family="monospace">HTML</text>
+<text x="843" y="397" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">5× · 2.0k</text>
+<rect x="30" y="410" width="9" height="9" fill="#84cc16" rx="1.5"/>
+<text x="44" y="419" font-size="11" fill="#e5e7eb" font-family="monospace">Shell</text>
+<text x="297" y="419" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">5× · 1.8k</text>
+<rect x="303" y="410" width="9" height="9" fill="#34d399" rx="1.5"/>
+<text x="317" y="419" font-size="11" fill="#e5e7eb" font-family="monospace">C++</text>
+<text x="570" y="419" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">4× · 16k</text>
+<rect x="576" y="410" width="9" height="9" fill="#c084fc" rx="1.5"/>
+<text x="590" y="419" font-size="11" fill="#e5e7eb" font-family="monospace">CSS</text>
+<text x="843" y="419" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">4× · 5.9k</text>
+<rect x="30" y="432" width="9" height="9" fill="#fbbf24" rx="1.5"/>
+<text x="44" y="441" font-size="11" fill="#e5e7eb" font-family="monospace">Assembly</text>
+<text x="297" y="441" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">4× · 658</text>
+<rect x="303" y="432" width="9" height="9" fill="#374151" rx="1.5"/>
+<text x="317" y="441" font-size="11" fill="#e5e7eb" font-family="monospace">Dockerfile</text>
+<text x="570" y="441" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">4× · 275</text>
+<rect x="576" y="432" width="9" height="9" fill="#374151" rx="1.5"/>
+<text x="590" y="441" font-size="11" fill="#e5e7eb" font-family="monospace">Jupyter Notebook</text>
+<text x="843" y="441" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">2× · —</text>
+<rect x="30" y="454" width="9" height="9" fill="#374151" rx="1.5"/>
+<text x="44" y="463" font-size="11" fill="#e5e7eb" font-family="monospace">C#</text>
+<text x="297" y="463" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">1× · 2.9k</text>
+<rect x="303" y="454" width="9" height="9" fill="#374151" rx="1.5"/>
+<text x="317" y="463" font-size="11" fill="#e5e7eb" font-family="monospace">Java</text>
+<text x="570" y="463" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">1× · 1.4k</text>
+<rect x="576" y="454" width="9" height="9" fill="#374151" rx="1.5"/>
+<text x="590" y="463" font-size="11" fill="#e5e7eb" font-family="monospace">Svelte</text>
+<text x="843" y="463" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">1× · 988</text>
+<rect x="30" y="476" width="9" height="9" fill="#374151" rx="1.5"/>
+<text x="44" y="485" font-size="11" fill="#e5e7eb" font-family="monospace">Batchfile</text>
+<text x="297" y="485" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">1× · 447</text>
+<rect x="303" y="476" width="9" height="9" fill="#374151" rx="1.5"/>
+<text x="317" y="485" font-size="11" fill="#e5e7eb" font-family="monospace">Lua</text>
+<text x="570" y="485" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">1× · 351</text>
+<rect x="576" y="476" width="9" height="9" fill="#374151" rx="1.5"/>
+<text x="590" y="485" font-size="11" fill="#e5e7eb" font-family="monospace">Haskell</text>
+<text x="843" y="485" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">1× · 192</text>
+<rect x="30" y="498" width="9" height="9" fill="#374151" rx="1.5"/>
+<text x="44" y="507" font-size="11" fill="#e5e7eb" font-family="monospace">TypeScript</text>
+<text x="297" y="507" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">1× · 79</text>
+<rect x="303" y="498" width="9" height="9" fill="#374151" rx="1.5"/>
+<text x="317" y="507" font-size="11" fill="#e5e7eb" font-family="monospace">Elixir</text>
+<text x="570" y="507" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">1× · 74</text>
+<rect x="576" y="498" width="9" height="9" fill="#374151" rx="1.5"/>
+<text x="590" y="507" font-size="11" fill="#e5e7eb" font-family="monospace">PowerShell</text>
+<text x="843" y="507" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">1× · 20</text>
+<rect x="30" y="520" width="9" height="9" fill="#374151" rx="1.5"/>
+<text x="44" y="529" font-size="11" fill="#e5e7eb" font-family="monospace">VHDL</text>
+<text x="297" y="529" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">1× · 10</text>
+<rect x="303" y="520" width="9" height="9" fill="#374151" rx="1.5"/>
+<text x="317" y="529" font-size="11" fill="#e5e7eb" font-family="monospace">Verilog</text>
+<text x="570" y="529" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">1× · 8</text>
+<rect x="576" y="520" width="9" height="9" fill="#374151" rx="1.5"/>
+<text x="590" y="529" font-size="11" fill="#e5e7eb" font-family="monospace">Go</text>
+<text x="843" y="529" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">1× · 3</text>
+<rect x="30" y="542" width="9" height="9" fill="#374151" rx="1.5"/>
+<text x="44" y="551" font-size="11" fill="#e5e7eb" font-family="monospace">CMake</text>
+<text x="297" y="551" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">1× · —</text>
+<rect x="303" y="542" width="9" height="9" fill="#374151" rx="1.5"/>
+<text x="317" y="551" font-size="11" fill="#e5e7eb" font-family="monospace">GLSL</text>
+<text x="570" y="551" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">1× · —</text>
+<rect x="576" y="542" width="9" height="9" fill="#374151" rx="1.5"/>
+<text x="590" y="551" font-size="11" fill="#e5e7eb" font-family="monospace">GCC Machine Desc…</text>
+<text x="843" y="551" font-size="11" fill="#6b7280" font-family="monospace" text-anchor="end">0× · 16k</text>
 
+
+  <text x="30" y="591" font-size="10" fill="#6b7280"
+        font-family="monospace">32 repos · 636 commits by @Thopterek · 93,455 lines · 27 languages</text>
 </svg>
